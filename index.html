@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Sun Energy - Зеленая энергия с блокчейн-учетом</title>
+    <style>
+        :root {
+            --primary: #2E8B57;
+            --primary-dark: #1F6B41;
+            --accent: #FFD700;
+            --dark: #1a1a1a;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-img {
+            height: 40px;
+            margin-right: 10px;
+            font-size: 1.8rem;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo-descriptor {
+            font-size: 0.7rem;
+            color: var(--gray);
+            display: block;
+            line-height: 1;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 25px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3') no-repeat center center/cover;
+            color: white;
+            padding: 180px 0 100px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            margin-left: 15px;
+        }
+        
+        .btn-secondary:hover {
+            background-color: white;
+            color: var(--dark);
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Problem Section */
+        .problem {
+            background-color: white;
+        }
+        
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .problem-card {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .problem-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .problem-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .problem-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        /* Solution Section */
+        .solution-steps {
+            display: flex;
+            flex-direction: column;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .step {
+            display: flex;
+            margin-bottom: 40px;
+            align-items: flex-start;
+        }
+        
+        .step-number {
+            background-color: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .step-content h3 {
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+        
+        /* Offer Section */
+        .offer {
+            background-color: white;
+        }
+        
+        .offer-card {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .offer-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .price {
+            margin: 30px 0;
+        }
+        
+        .old-price {
+            font-size: 1.5rem;
+            text-decoration: line-through;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .new-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .discount-badge {
+            background-color: var(--accent);
+            color: var(--dark);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        
+        .features-list {
+            text-align: left;
+            max-width: 500px;
+            margin: 30px auto;
+        }
+        
+        .features-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .features-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        /* Calculator Section */
+        .calculator {
+            background-color: var(--light);
+        }
+        
+        .calculator-container {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        
+        .calc-result {
+            background-color: var(--light);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            display: none;
+        }
+        
+        .calc-result.active {
+            display: block;
+        }
+        
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .result-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--primary);
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            background-color: white;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .benefit-card {
+            text-align: center;
+            padding: 25px;
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .benefit-card h3 {
+            margin-bottom: 15px;
+        }
+        
+        /* Telegram Ecosystem */
+        .telegram-ecosystem {
+            background-color: var(--light);
+        }
+        
+        .ecosystem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .ecosystem-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border: 1px solid #e1e8ed;
+            cursor: pointer;
+        }
+        
+        .ecosystem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .ecosystem-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .ecosystem-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .ecosystem-card p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        
+        .ecosystem-link {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding: 8px 15px;
+            background-color: rgba(46, 139, 87, 0.1);
+            border-radius: 8px;
+            display: inline-block;
+        }
+        
+        .ecosystem-bot {
+            display: flex;
+            align-items: flex-start;
+            text-align: left;
+            padding: 15px;
+            background-color: var(--light);
+            border-radius: 10px;
+            border-left: 4px solid #0088cc;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .ecosystem-bot:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+        
+        .bot-icon {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            margin-top: 2px;
+        }
+        
+        .bot-info strong {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .bot-info p {
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            color: var(--gray);
+        }
+        
+        .bot-link {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        /* Contacts Section */
+        .contacts {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3') no-repeat center center/cover;
+            color: white;
+        }
+        
+        .contacts-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-icon {
+            margin-right: 15px;
+            font-size: 1.2rem;
+            width: 30px;
+            text-align: center;
+        }
+        
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .footer-description {
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary);
+        }
+        
+        .footer-links h4 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+            }
+            
+            nav {
+                width: 100%;
+                margin-top: 15px;
+                display: none;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: 10px;
+                display: block;
+            }
+            
+            .step {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .step-number {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-img">☀️</div>
+                <div>
+                    <div class="logo-text">GREEN SUN</div>
+                    <div class="logo-descriptor">VERIFIED SOLAR ENERGY & CO.TOKENS</div>
+                </div>
+            </div>
+            <button class="mobile-menu-btn">☰</button>
+            <nav>
+                <ul>
+                    <li><a href="#problem">Проблема</a></li>
+                    <li><a href="#solution">Решение</a></li>
+                    <li><a href="#offer">Комплект</a></li>
+                    <li><a href="#calculator">Калькулятор</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Зеленая энергия, которая приносит двойной доход</h1>
+            <p>Производите электричество. Создавайте цифровые сертификаты. Получайте прибыль от их продажи. Технология будущего уже сегодня.</p>
+            <a href="#calculator" class="btn btn-primary">Рассчитать окупаемость</a>
+            <a href="#solution" class="btn btn-secondary">Узнать о технологии</a>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problem" class="problem">
+        <div class="container">
+            <div class="section-title">
+                <h2>Миру нужен честный учет зеленой энергии</h2>
+                <p>Современные системы сертификации имеют фундаментальные недостатки, которые мы устраняем с помощью блокчейн-технологии</p>
+            </div>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">❓</div>
+                    <h3>Недостоверность данных</h3>
+                    <p>Сложно доказать, что энергия действительно "зеленая". Существующие системы уязвимы для манипуляций.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🔒</div>
+                    <h3>Непрозрачность сертификатов</h3>
+                    <p>Процесс выпуска и оборота сертификатов непрозрачен, что порождает недоверие на рынке.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">⛓️</div>
+                    <h3>Затрудненный оборот</h3>
+                    <p>Сертификаты сложно дробить и передавать, что ограничивает ликвидность рынка.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution" class="solution">
+        <div class="container">
+            <div class="section-title">
+                <h2>Сквозной учет и сертификация на блокчейне</h2>
+                <p>Наша технология обеспечивает полную прозрачность и доверие на каждом этапе</p>
+            </div>
+            <div class="solution-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Производство</h3>
+                        <p>Ваши солнечные панели вырабатывают киловатт-часы. Наши защищенные аппаратные шлюзы с HSM-модулями фиксируют каждый кВт·ч в блокчейне, обеспечивая криптографическую защиту от подделки.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Сертификация</h3>
+                        <p>Каждый верифицированный кВт·ч автоматически превращается в цифровой актив eKWH, а затем — в уникальный сертификат происхождения NFT-GO. Алгоритм "первый пришел - первый ушел" гарантирует прослеживаемость.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Продажа и аудит</h3>
+                        <p>Продавайте сертификаты на децентрализованном рынке. Дробите их для частичной продажи. Проходите обязательный аудит с помощью доказательств с нулевым разглашением (ZKP), не раскрывая коммерческую тайну.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offer Section -->
+    <section id="offer" class="offer">
+        <div class="container">
+            <div class="section-title">
+                <h2>Начните зарабатывать на зеленой энергии</h2>
+                <p>Полный комплект для подключения к нашей блокчейн-экосистеме</p>
+            </div>
+            <div class="offer-card">
+                <h3>Солнечная электростанция 50 кВт + блокчейн-модуль</h3>
+                <div class="discount-badge">АКЦИЯ -38%</div>
+                <div class="price">
+                    <div class="old-price">4 500 000 руб.</div>
+                    <div class="new-price">2 800 000 руб.</div>
+                </div>
+                <p>Полное решение "под ключ" для бизнеса и частных хозяйств</p>
+                
+                <ul class="features-list">
+                    <li>Солнечные панели премиум-класса 50 кВт</li>
+                    <li>Инверторы и монтажная система</li>
+                    <li>Блокчейн-шлюз с HSM-модулем безопасности</li>
+                    <li>Пожизненное подключение к платформе Green Sun</li>
+                    <li>Техническая поддержка и настройка</li>
+                    <li>Обучение работе с системой</li>
+                </ul>
+                
+                <a href="#contacts" class="btn btn-primary">Заказать комплект</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section id="calculator" class="calculator">
+        <div class="container">
+            <div class="section-title">
+                <h2>Калькулятор окупаемости</h2>
+                <p>Рассчитайте, как быстро ваша станция начнет приносить прибыль</p>
+            </div>
+            <div class="calculator-container">
+                <div class="form-group">
+                    <label for="region">Ваш регион</label>
+                    <select id="region" class="form-control">
+                        <option value="1.2">Южные регионы (Краснодарский край, Крым)</option>
+                        <option value="1.0">Центральные регионы (Москва, СПб)</option>
+                        <option value="0.9">Северные регионы</option>
+                        <option value="1.1">Приволжье</option>
+                        <option value="0.8">Урал и Сибирь</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="tariff">Стоимость 1 кВт·ч в вашем тарифе (руб.)</label>
+                    <input type="number" id="tariff" class="form-control" value="5" min="1" max="20" step="0.1">
+                </div>
+                <div class="form-group">
+                    <label for="certificate-price">Средняя цена сертификата за 1 кВт·ч (руб.)</label>
+                    <input type="number" id="certificate-price" class="form-control" value="2" min="0.5" max="10" step="0.1">
+                </div>
+                <button id="calculate-btn" class="btn btn-primary" style="width: 100%;">Рассчитать окупаемость</button>
+                
+                <div id="calc-result" class="calc-result">
+                    <h3>Результаты расчета:</h3>
+                    <div class="result-item">
+                        <span>Годовой доход от генерации:</span>
+                        <span id="income-generation">0 руб.</span>
+                    </div>
+                    <div class="result-item">
+                        <span>Годовой доход от сертификатов:</span>
+                        <span id="income-certificates">0 руб.</span>
+                    </div>
+                    <div class="result-item">
+                        <span>Срок окупаемости:</span>
+                        <span id="payback-period">0 лет</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Почему выбирают Green Sun?</h2>
+                <p>Наши ключевые преимущества</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🛡️</div>
+                    <h3>Защита от подделок</h3>
+                    <p>Аппаратные HSM-модули гарантируют криптографическую защиту данных</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔍</div>
+                    <h3>Прозрачность</h3>
+                    <p>Блокчейн обеспечивает полную прослеживаемость каждого кВт·ч</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💎</div>
+                    <h3>Ликвидность</h3>
+                    <p>Дробление и свободная продажа сертификатов на открытом рынке</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🤫</div>
+                    <h3>Конфиденциальность</h3>
+                    <p>Аудит без раскрытия коммерческой тайны с помощью ZKP-технологии</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Telegram Ecosystem Section -->
+    <section class="telegram-ecosystem">
+        <div class="container">
+            <div class="section-title">
+                <h2>Наша экосистема в Telegram</h2>
+                <p>Присоединяйтесь к нашему сообществу и используйте автоматизированные сервисы</p>
+            </div>
+            <div class="ecosystem-grid">
+                <div class="ecosystem-card" onclick="window.open('https://t.me/greensun_energy', '_blank')">
+                    <div class="ecosystem-icon">🌞</div>
+                    <h3>Основной канал</h3>
+                    <p>Новости проекта, обновления технологии, успехи клиентов</p>
+                    <div class="ecosystem-link">@greensun_energy</div>
+                    <div class="ecosystem-bot" onclick="event.stopPropagation(); window.open('https://t.me/greensun_energy_bot', '_blank')">
+                        <div class="bot-icon">🤖</div>
+                        <div class="bot-info">
+                            <strong>Коммерческий бот</strong>
+                            <p>Консультации, расчет стоимости, заказ оборудования</p>
+                            <span class="bot-link">@greensun_energy_bot</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ecosystem-card" onclick="window.open('https://t.me/greensun_franchise', '_blank')">
+                    <div class="ecosystem-icon">🤝</div>
+                    <h3>Франшиза</h3>
+                    <p>Для партнеров и региональных представителей</p>
+                    <div class="ecosystem-link">@greensun_franchise</div>
+                    <div class="ecosystem-bot" onclick="event.stopPropagation(); window.open('https://t.me/greensun_franchise_bot', '_blank')">
+                        <div class="bot-icon">🤖</div>
+                        <div class="bot-info">
+                            <strong>Бот партнерства</strong>
+                            <p>Заявки на франшизу, документация, поддержка</p>
+                            <span class="bot-link">@greensun_franchise_bot</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ecosystem-card" onclick="window.open('https://t.me/GNSun_token', '_blank')">
+                    <div class="ecosystem-icon">💰</div>
+                    <h3>Токен GNSun</h3>
+                    <p>Инвестиции и работа с цифровыми активами</p>
+                    <div class="ecosystem-link">@GNSun_token</div>
+                    <div class="ecosystem-bot" onclick="event.stopPropagation(); window.open('https://t.me/GNSun_bot', '_blank')">
+                        <div class="bot-icon">🤖</div>
+                        <div class="bot-info">
+                            <strong>Токен-бот</strong>
+                            <p>Баланс, транзакции, стейкинг</p>
+                            <span class="bot-link">@GNSun_bot</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacts Section -->
+    <section id="contacts" class="contacts">
+        <div class="container">
+            <div class="section-title">
+                <h2>Готовы к переходу на новый уровень?</h2>
+                <p>Свяжитесь с нами для консультации или покупки комплекта</p>
+            </div>
+            <div class="contacts-container">
+                <div class="contact-info">
+                    <h3>Наши контакты</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <div>Телефон / WhatsApp</div>
+                            <div><a href="https://wa.me/79288117722" style="color: white;">+7 (928) 811-77-22</a></div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✈️</div>
+                        <div>
+                            <div>Telegram</div>
+                            <div><a href="https://t.me/greensun_energy" style="color: white;">@greensun_energy</a></div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <div>Email</div>
+                            <div><a href="mailto:info@greensun.energy" style="color: white;">info@greensun.energy</a></div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🌐</div>
+                        <div>
+                            <div>Сайт</div>
+                            <div><a href="https://greensun.energy" style="color: white;">greensun.energy</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Оставить заявку</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" class="form-control" placeholder="Телефон" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Сообщение" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Отправить заявку</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">GREEN SUN</div>
+                    <p class="footer-description">Система сквозного учета, сертификации и аудита зеленой энергии на основе блокчейн-технологии.</p>
+                    <div class="social-links">
+                        <a href="https://t.me/greensun_energy" class="social-link">✈️</a>
+                        <a href="https://wa.me/79288117722" class="social-link">📞</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Разделы</h4>
+                    <ul>
+                        <li><a href="#problem">Проблема</a></li>
+                        <li><a href="#solution">Решение</a></li>
+                        <li><a href="#offer">Комплект</a></li>
+                        <li><a href="#calculator">Калькулятор</a></li>
+                        <li><a href="#contacts">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Технология</h4>
+                    <ul>
+                        <li><a href="#">Блокчейн-учет</a></li>
+                        <li><a href="#">Цифровые сертификаты</a></li>
+                        <li><a href="#">ZKP-аудит</a></li>
+                        <li><a href="#">Углеродные паспорта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Green Sun Energy. Все права защищены.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu after click
+                    document.querySelector('nav').classList.remove('active');
+                }
+            });
+        });
+        
+        // Calculator functionality
+        document.getElementById('calculate-btn').addEventListener('click', function() {
+            const regionFactor = parseFloat(document.getElementById('region').value);
+            const tariff = parseFloat(document.getElementById('tariff').value);
+            const certificatePrice = parseFloat(document.getElementById('certificate-price').value);
+            
+            // Constants for calculation
+            const systemPower = 50; // kW
+            const annualHours = 1200; // Average productive hours per year
+            const systemCost = 2800000; // RUB
+            
+            // Calculations
+            const annualGeneration = systemPower * annualHours * regionFactor; // kWh
+            const incomeGeneration = annualGeneration * tariff;
+            const incomeCertificates = annualGeneration * certificatePrice;
+            const totalAnnualIncome = incomeGeneration + incomeCertificates;
+            const paybackYears = systemCost / totalAnnualIncome;
+            
+            // Display results
+            document.getElementById('income-generation').textContent = formatCurrency(incomeGeneration);
+            document.getElementById('income-certificates').textContent = formatCurrency(incomeCertificates);
+            document.getElementById('payback-period').textContent = paybackYears.toFixed(1) + ' лет';
+            
+            // Show results
+            document.getElementById('calc-result').classList.add('active');
+        });
+        
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('ru-RU', {
+                style: 'currency',
+                currency: 'RUB',
+                maximumFractionDigits: 0
+            }).format(amount);
+        }
+        
+        // Contact form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
+            this.reset();
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('nav') && !e.target.closest('.mobile-menu-btn')) {
+                document.querySelector('nav').classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
