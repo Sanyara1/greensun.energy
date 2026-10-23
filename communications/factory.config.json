@@ -20,9 +20,11 @@
       "id": "telegram",
       "enabled": false,
       "destination": "@Gsun_ai",
-      "blocker": "API identity and can_post_messages not verified; publisher not deployed",
+      "blocker": "Publisher not deployed; first post not approved or sent",
       "expected_bot_username": "greensun_energy_bot",
-      "verification_status": "owner_reports_permissions_set_api_check_pending"
+      "verification_status": "owner_supplied_api_check_pass_2026-10-23",
+      "chat_id": -1004428833073,
+      "can_post_messages": true
     },
     {
       "id": "max",
