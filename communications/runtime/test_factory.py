@@ -122,12 +122,48 @@ class FactoryTests(unittest.TestCase):
         raw = {'posts': [{k: v for k, v in p.items() if k not in ('id', 'scheduled_at')}
                          for p in self.plan['posts']]}
         (self.home / 'plans/2099-11.json').unlink()
-        with patch.object(f, 'llm', side_effect=[raw, {'pass': True, 'issues': []}]) as model:
+        with patch.object(f, 'llm', side_effect=[{'posts': [post]} for post in raw['posts']] + [{'pass': True, 'issues': []}]) as model:
             path = f.generate('2099-11', self.home)
-            self.assertEqual(model.call_count, 2)
+            self.assertEqual(model.call_count, len(raw['posts']) + 1)
         self.assertIsNone(f.read(path)['approval'])
         with self.assertRaisesRegex(f.Stop, 'PLAN_EXISTS'):
             f.generate('2099-11', self.home)
+    def test_resume_after_failure_and_input_change_guard(self):
+        facts = [dict(self.facts[0], id=x) for x in ('a', 'b', 'c')]
+        f.write(self.home / 'facts.json', facts)
+        (self.home / 'plans/2099-11.json').unlink()
+        raw = {k: v for k, v in self.plan['posts'][0].items() if k not in ('id', 'scheduled_at')}
+        with patch.object(f, 'llm', side_effect=[{'posts': [raw]}, f.Stop('REMOTE_TIMEOUT')]):
+            with self.assertRaisesRegex(f.Stop, 'REMOTE_TIMEOUT'):
+                f.generate('2099-11', self.home)
+        self.assertFalse((self.home / 'plans/2099-11.json').exists())
+        self.assertEqual(len(f.read(self.home / 'generation/2099-11.json')['posts']), 1)
+        facts[0]['text'] = 'changed'
+        f.write(self.home / 'facts.json', facts)
+        with patch.object(f, 'llm') as model:
+            with self.assertRaisesRegex(f.Stop, 'CHECKPOINT_INPUT_CHANGED'):
+                f.generate('2099-11', self.home)
+            model.assert_not_called()
+        facts[0]['text'] = self.facts[0]['text']
+        f.write(self.home / 'facts.json', facts)
+        count = len(self.plan['posts'])
+        with patch.object(f, 'llm', side_effect=[{'posts': [raw]}] * (count-1) + [{'pass': True}] ) as model:
+            result = f.generate('2099-11', self.home)
+            self.assertEqual(model.call_count, count)
+        self.assertEqual(len(f.read(result)['posts']), count)
+        self.assertIsNone(f.read(result)['approval'])
+
+    def test_cloudflare_low_reasoning_and_truncation(self):
+        with patch.dict(os.environ, {'LLM_URL': 'https://api.cloudflare.com/client/v4/accounts/test/ai/v1/chat/completions', 'LLM_MODEL': 'test'}):
+            with patch.object(f, 'request_json', return_value={'choices': [{'finish_reason':'stop','message': {'content':'{"posts":[]}'}}]}) as call:
+                self.assertEqual(f.llm([]), {'posts':[]})
+                payload = call.call_args.args[1]
+                self.assertEqual(payload['reasoning_effort'], 'low')
+                self.assertEqual(payload['max_completion_tokens'], 2400)
+            with patch.object(f, 'request_json', return_value={'choices':[{'finish_reason':'length','message':{'content':'{}'}}]}):
+                with self.assertRaisesRegex(f.Stop, 'MODEL_OUTPUT_TRUNCATED'):
+                    f.llm([])
+
     def test_live_requires_enable(self):
         with patch.dict(os.environ, {'GSUN_PUBLISH_ENABLED': 'no'}):
             with self.assertRaisesRegex(f.Stop, 'LIVE_DISABLED'):
