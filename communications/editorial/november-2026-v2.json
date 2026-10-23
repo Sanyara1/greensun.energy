@@ -1,0 +1,179 @@
+{
+  "revision_id": "gsun-november-2026-editorial-v2",
+  "month": "2026-11",
+  "status": "DRAFT_REQUIRES_MODEL_REVIEW_AND_OWNER_APPROVAL",
+  "posts": [
+    {
+      "id": "2026-11-01",
+      "title": "С чего начинается подбор станции",
+      "text_ru": "Сколько киловатт нужно вашему объекту?\n\nВ GSun подбор начинается с потребления: когда и на что расходуется энергия. Затем подбираем мощность под профиль объекта и обсуждаем условия размещения оборудования.\n\nЕсть идея солнечной станции? Начнём с вашего объекта: https://gsun.ai/start",
+      "text_en": "How much solar capacity does your site need?\n\nAt GSun, sizing starts with your electricity use: when energy is consumed and what it powers. We then match capacity to your consumption profile and discuss equipment placement.\n\nThinking about solar? Tell us about your site: https://gsun.ai/start",
+      "fact_ids": [
+        "GSUN_WEB_CONSUMPTION",
+        "GSUN_WEB_INSTALLATION",
+        "GSUN_WEB_CONTACT"
+      ],
+      "media_id": null,
+      "image_brief": "Иллюстрация: солнечный свет на нейтральном архитектурном макете крыши, рядом блокнот без читаемого текста. Кремовый фон, тёмно-зелёные акценты. Без чисел, графиков, логотипов и изображения реального клиента."
+    },
+    {
+      "id": "2026-11-02",
+      "title": "Место для оборудования и обслуживания",
+      "text_ru": "Проект станции — это ещё и план её обслуживания.\n\nПри подготовке проекта GSun учитывает размещение оборудования, подключение, безопасность и дальнейшую эксплуатацию. Эти вопросы обсуждаем вместе, применительно к конкретному объекту.\n\nРасскажите, где планируете установить станцию: https://gsun.ai/start",
+      "text_en": "A solar project also needs a maintenance plan.\n\nWhen preparing a project, GSun considers equipment placement, electrical connection, safety and ongoing operation. We discuss these together, based on the conditions at your site.\n\nTell us where you plan to install solar: https://gsun.ai/start",
+      "fact_ids": [
+        "GSUN_WEB_INSTALLATION",
+        "GSUN_WEB_CONTACT"
+      ],
+      "media_id": null,
+      "image_brief": "Шаблонная карточка: четыре равнозначных пункта «Размещение / Подключение / Безопасность / Обслуживание». Точный текст наносится программно, без выдуманной электрической схемы."
+    },
+    {
+      "id": "2026-11-03",
+      "title": "Солнечная энергетика для гостиницы",
+      "text_ru": "У каждой гостиницы — свои условия работы.\n\nGSun предлагает солнечные станции для гостиниц и бизнеса. Подбор мощности начинаем с профиля потребления, а при анализе работы сопоставляем генерацию и нагрузку.\n\nОбсудим условия вашего объекта и следующий шаг: https://gsun.ai/start",
+      "text_en": "Every hotel has its own operating conditions.\n\nGSun offers solar installations for hotels and businesses. We start sizing with the consumption profile and compare generation with load when analysing operation.\n\nLet’s discuss your site and the next step: https://gsun.ai/start",
+      "fact_ids": [
+        "GSUN_WEB_BUSINESS",
+        "GSUN_WEB_CONSUMPTION",
+        "GSUN_WEB_COMPARISON",
+        "GSUN_WEB_CONTACT"
+      ],
+      "media_id": null,
+      "image_brief": "Иллюстрация: вымышленная небольшая гостиница среди зелени южного региона, солнечные панели на крыше, мягкий дневной свет. Не копировать Hotel Kristal или другие реальные гостиницы; без вывесок и обещаний экономии."
+    },
+    {
+      "id": "2026-11-04",
+      "title": "Станция уже работает",
+      "text_ru": "Солнечная станция уже установлена?\n\nВ GSun можно обратиться и с действующим объектом. Мы предлагаем обслуживание солнечных электростанций и обсуждаем задачи мониторинга: выработку, нагрузку и состояние оборудования.\n\nРасскажите, какое оборудование у вас установлено и что хотите проверить: https://gsun.ai/start",
+      "text_en": "Already have a solar installation?\n\nYou can contact GSun about an existing site. We offer maintenance for solar installations and discuss monitoring needs: generation, load and equipment condition.\n\nTell us what equipment you have and what you would like to check: https://gsun.ai/start",
+      "fact_ids": [
+        "GSUN_WEB_SERVICES",
+        "GSUN_WEB_MONITORING",
+        "GSUN_WEB_CONTACT"
+      ],
+      "media_id": null,
+      "image_brief": "Предпочтительно одобренное собственное фото действующей станции без персональных данных и серийных номеров. При отсутствии фото — шаблонная текстовая карточка, без имитации клиентского объекта."
+    },
+    {
+      "id": "2026-11-05",
+      "title": "Что наблюдает мониторинг",
+      "text_ru": "Выработка, нагрузка, состояние оборудования — три направления мониторинга GSun.\n\nСопоставляем генерацию и нагрузку, сохраняем историю измерений для анализа. Так разговор о работе станции опирается на данные конкретного объекта.\n\nКакая задача мониторинга важна для вас? https://gsun.ai/start",
+      "text_en": "Generation, load and equipment condition are three areas of GSun monitoring.\n\nWe compare generation with load and retain measurement history for analysis. This grounds discussions about a station’s operation in data from that site.\n\nWhat would you like to monitor? https://gsun.ai/start",
+      "fact_ids": [
+        "GSUN_WEB_MONITORING",
+        "GSUN_WEB_COMPARISON",
+        "GSUN_WEB_DATA",
+        "GSUN_WEB_CONTACT"
+      ],
+      "media_id": null,
+      "image_brief": "Шаблонная карточка с тремя пиктограммами и подписями «Выработка / Нагрузка / Оборудование». Без графиков с фиктивной телеметрией и без имитации работающего интерфейса."
+    },
+    {
+      "id": "2026-11-06",
+      "title": "После монтажа",
+      "text_ru": "Что происходит после монтажа солнечных панелей?\n\nРабота GSun с объектом включает проектирование, установку, подключение и обслуживание. При подготовке проекта заранее учитываем, как станция будет эксплуатироваться дальше.\n\nОбсудить новую станцию или обслуживание существующей: +7 928 811-77-22.",
+      "text_en": "What happens after the solar panels are installed?\n\nGSun’s services cover design, installation, connection and maintenance. During project preparation, we consider how the installation will be operated over time.\n\nTo discuss a new installation or maintenance for an existing one, call +7 928 811-77-22.",
+      "fact_ids": [
+        "GSUN_WEB_SERVICES",
+        "GSUN_WEB_INSTALLATION",
+        "GSUN_WEB_CONTACT"
+      ],
+      "media_id": null,
+      "image_brief": "Шаблонная последовательность четырёх этапов: проектирование, установка, подключение, обслуживание. Без дат, процентов и утверждения о выполнении работ у конкретного клиента."
+    },
+    {
+      "id": "2026-11-07",
+      "title": "Где работаем",
+      "text_ru": "Сочи и Краснодарский край — основной регион работы GSun. Проекты на Кавказе рассматриваем по запросу.\n\nПроектируем, устанавливаем и обслуживаем солнечные электростанции. Обсудить можно как новую станцию, так и уже работающий объект.\n\nНапишите, где находится ваш объект: https://gsun.ai/start",
+      "text_en": "Sochi and Krasnodar Krai are GSun’s main service area. Projects elsewhere in the Caucasus are considered on request.\n\nWe design, install and maintain solar installations. You can contact us about a new project or an existing site.\n\nTell us where your site is located: https://gsun.ai/start",
+      "fact_ids": [
+        "GSUN_WEB_REGION",
+        "GSUN_WEB_SERVICES",
+        "GSUN_WEB_CONTACT"
+      ],
+      "media_id": null,
+      "image_brief": "Шаблонная типографическая карточка «Сочи · Краснодарский край» и отдельная строка «Кавказ — по запросу». Не генерировать географическую карту и не отмечать несуществующие офисы."
+    },
+    {
+      "id": "2026-11-08",
+      "title": "Какие задачи обсудить до подключения",
+      "text_ru": "Что вы хотите узнать о своей станции?\n\nВыработку, нагрузку, состояние оборудования или историю измерений? Сформулируйте задачу и расскажите об установленном оборудовании — с этого можно начать обсуждение мониторинга с GSun.\n\nКонтакт для первого разговора: ceo@gsun.io",
+      "text_en": "What would you like to know about your solar installation?\n\nIts generation, load, equipment condition or measurement history? Describe your goal and the equipment you have installed to start a monitoring discussion with GSun.\n\nContact us at ceo@gsun.io",
+      "fact_ids": [
+        "GSUN_WEB_MONITORING",
+        "GSUN_WEB_DATA",
+        "GSUN_WEB_CONTACT"
+      ],
+      "media_id": null,
+      "image_brief": "Шаблонная карточка-вопрос «Что вы хотите узнать о станции?» с тремя абстрактными пиктограммами. Без заявления о наличии или отсутствии дистанционного управления."
+    },
+    {
+      "id": "2026-11-09",
+      "title": "Что сообщить при первом обращении",
+      "text_ru": "Готовитесь обсудить солнечную станцию?\n\nНачните с трёх вопросов: когда и на что расходуется энергия, где можно разместить оборудование, речь идёт о новом проекте или действующей станции.\n\nВ GSun эти сведения помогают начать разговор об условиях конкретного объекта. Написать нам: ceo@gsun.io",
+      "text_en": "Ready to discuss a solar installation?\n\nStart with three questions: when and what you use electricity for, where equipment could be placed, and whether this is a new project or an existing installation.\n\nAt GSun, this information helps start a discussion about your site’s conditions. Email ceo@gsun.io",
+      "fact_ids": [
+        "GSUN_WEB_CONSUMPTION",
+        "GSUN_WEB_INSTALLATION",
+        "GSUN_WEB_CONTACT"
+      ],
+      "media_id": null,
+      "image_brief": "Шаблонный чек-лист из трёх вопросов. Текст и знаки добавляются программно. Без изображения документов с вымышленными клиентскими данными."
+    },
+    {
+      "id": "2026-11-10",
+      "title": "Зачем сохранять историю",
+      "text_ru": "Работа станции — это история измерений.\n\nЦифровое направление GSun объединяет историю показаний, учёт энергии и подготовку данных для дальнейшей проверки. Для бизнеса наш подход включает сопоставление генерации и нагрузки.\n\nОбсудим, какие данные нужны для анализа вашего объекта: https://gsun.ai/start",
+      "text_en": "A solar installation has a measurement history.\n\nGSun’s digital work brings together measurement history, energy accounting and data preparation for further review. For businesses, our approach includes comparing generation with load.\n\nLet’s discuss the data you need to analyse your site: https://gsun.ai/start",
+      "fact_ids": [
+        "GSUN_WEB_DATA",
+        "GSUN_WEB_COMPARISON",
+        "GSUN_WEB_CONTACT"
+      ],
+      "media_id": null,
+      "image_brief": "Иллюстрация: абстрактный упорядоченный архив карточек в зелёно-кремовой гамме, солнечный свет. Без цифровых показаний, официальных печатей и сертификатов."
+    },
+    {
+      "id": "2026-11-11",
+      "title": "Данные и официальная проверка",
+      "text_ru": "Подготовленные данные и официальная проверка — разные этапы.\n\nGSun готовит энергетические данные и историю измерений для анализа и дальнейшей проверки. Официальная валидация, верификация и выпуск углеродных единиц проходят отдельными процедурами уполномоченных организаций.\n\nОбсудить подготовку данных по вашей станции: ceo@gsun.io",
+      "text_en": "Preparing data and carrying out an official assessment are separate stages.\n\nGSun prepares energy data and measurement history for analysis and further review. Official validation, verification and the issuance of carbon units follow separate procedures handled by authorised organisations.\n\nTo discuss data preparation for your installation, email ceo@gsun.io",
+      "fact_ids": [
+        "GSUN_WEB_MRV_BOUNDARY",
+        "GSUN_WEB_DATA",
+        "GSUN_WEB_CONTACT"
+      ],
+      "media_id": null,
+      "image_brief": "Шаблонная карточка из двух отдельных блоков: «GSun: подготовка данных» и «Уполномоченные организации: официальные процедуры». Без государственных символов, печатей, сертификатов и имитации одобрения."
+    },
+    {
+      "id": "2026-11-12",
+      "title": "Обсудить объект с партнёром",
+      "text_ru": "Работаете с гостиницами или другими коммерческими объектами?\n\nGSun предлагает решения солнечной энергетики для бизнеса: от проектирования и установки до обслуживания. Начать обсуждение можно с условий объекта, профиля потребления и задач мониторинга.\n\nДля первого контакта: ceo@gsun.io",
+      "text_en": "Do you work with hotels or other commercial properties?\n\nGSun offers solar energy services for businesses, from design and installation to maintenance. A discussion can start with site conditions, the consumption profile and monitoring needs.\n\nGet in touch at ceo@gsun.io",
+      "fact_ids": [
+        "GSUN_WEB_BUSINESS",
+        "GSUN_WEB_SERVICES",
+        "GSUN_WEB_CONSUMPTION",
+        "GSUN_WEB_MONITORING",
+        "GSUN_WEB_CONTACT"
+      ],
+      "media_id": null,
+      "image_brief": "Иллюстрация: рабочий стол с нейтральным макетом здания и солнечной панелью, без людей, логотипов партнёров и подписанных договоров. Образ обсуждения проекта, не свидетельство заключённого партнёрства."
+    },
+    {
+      "id": "2026-11-13",
+      "title": "Следующий шаг",
+      "text_ru": "Новая станция, обслуживание или мониторинг — с какой задачей вы сейчас?\n\nВ GSun можно обратиться с идеей проекта или с уже работающей солнечной станцией. Расскажите об объекте и цели обращения, чтобы обсудить следующий шаг.\n\nКонтакты собраны здесь: https://gsun.ai/start",
+      "text_en": "A new installation, maintenance or monitoring — what are you working on?\n\nYou can contact GSun with an idea for a project or an existing solar installation. Tell us about your site and your goal so we can discuss the next step.\n\nFind our contact details here: https://gsun.ai/start",
+      "fact_ids": [
+        "GSUN_WEB_CONTACT",
+        "GSUN_WEB_SERVICES",
+        "GSUN_WEB_MONITORING"
+      ],
+      "media_id": null,
+      "image_brief": "Шаблонная карточка с тремя направлениями «Новая станция / Обслуживание / Мониторинг» и адресом gsun.ai/start. Без QR до проверки целевого адреса; текст наносить программно."
+    }
+  ]
+}
