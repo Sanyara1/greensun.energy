@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "status": "configuration_only_not_deployed",
+  "timezone": "Europe/Moscow",
+  "languages": [
+    "ru",
+    "en"
+  ],
+  "publishing_enabled": false,
+  "approval_required": true,
+  "approval_scope": [
+    "content_hash",
+    "channel_id",
+    "media_hashes",
+    "scheduled_at"
+  ],
+  "model_provider": "not_configured",
+  "channels": [
+    {
+      "id": "telegram",
+      "enabled": false,
+      "destination": null,
+      "blocker": "Public news channel URL and bot admin rights not verified; greensun_energy_bot is a bot, not a channel"
+    },
+    {
+      "id": "max",
+      "enabled": false,
+      "destination": null,
+      "blocker": "Known invite link does not establish channel type, chat_id or publishing rights"
+    },
+    {
+      "id": "metricool",
+      "enabled": false,
+      "destination": null,
+      "blocker": "Connector reports no social networks connected"
+    },
+    {
+      "id": "website",
+      "enabled": false,
+      "destination": null,
+      "blocker": "News route and deployment not implemented"
+    }
+  ],
+  "workflow": [
+    "source",
+    "fact_checked",
+    "draft_ru_en",
+    "review",
+    "approved",
+    "queued",
+    "published",
+    "measured"
+  ],
+  "required_fields": [
+    "id",
+    "audience",
+    "claim_status",
+    "source_urls",
+    "source_checked_at",
+    "text_ru",
+    "text_en",
+    "cta_url",
+    "media_rights",
+    "approval"
+  ],
+  "deduplication_key": [
+    "id",
+    "channel_id",
+    "language",
+    "content_hash"
+  ],
+  "ambiguous_send_result": "manual_reconciliation_no_blind_retry",
+  "secrets_storage": "outside_git",
+  "metrics": [
+    "utm_clicks",
+    "qualified_inquiries",
+    "demo_requests",
+    "partner_inquiries"
+  ]
+}
