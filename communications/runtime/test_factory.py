@@ -1,0 +1,138 @@
+import copy
+import json
+import os
+import tempfile
+import unittest
+from datetime import timedelta
+from pathlib import Path
+from unittest.mock import patch
+import factory as f
+
+
+class FakeTelegram:
+    def __init__(self, fail=False):
+        self.sent = []
+        self.fail = fail
+    def verify(self):
+        pass
+    def send(self, chat, text, photo=None):
+        self.sent.append((chat, text, photo))
+        if self.fail:
+            raise TimeoutError()
+        return {'message_id': len(self.sent)}
+
+
+class FactoryTests(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.home = Path(self.tmp.name)
+        self.facts = [{'id': 'a', 'public': True, 'verified': True,
+                       'status': 'service', 'source_url': 'https://gsun.ai/',
+                       'text': 'Солнечные станции', 'checked_at': '2026-10-23T12:00:00+03:00',
+                       'valid_until': '2100-01-01T00:00:00+03:00'}]
+        self.plan = {'month': '2099-11', 'channel_id': f.CHANNEL, 'timezone': 'Europe/Moscow',
+                     'fact_hashes': {'a': f.digest(self.facts[0])}, 'media_hashes': {},
+                     'posts': [{'id': f'2099-11-{i+1:02d}', 'scheduled_at': t,
+                                'text_ru': 'Солнечные станции', 'text_en': 'Solar stations',
+                                'fact_ids': ['a'], 'media_id': None}
+                               for i, t in enumerate(f.slots('2099-11'))]}
+        self.plan['review'] = {'pass': True, 'posts_hash': f.digest(self.plan['posts'])}
+        self.plan['approval'] = {'hash': f.sealed_hash(self.plan)}
+        self.save()
+        self.now = f.instant(self.plan['posts'][0]['scheduled_at'])
+        self.env = patch.dict(os.environ, {'GSUN_PUBLISH_ENABLED': 'yes', 'OWNER_CHAT_ID': '1234'})
+        self.env.start()
+        self.addCleanup(self.env.stop)
+    def save(self):
+        f.write(self.home / 'facts.json', self.facts)
+        f.write(self.home / 'media.json', {})
+        f.write(self.home / 'plans/2099-11.json', self.plan)
+    def test_calendar(self):
+        for s in f.slots('2026-11'):
+            d = f.instant(s)
+            self.assertIn(d.weekday(), (0, 2, 4))
+            self.assertEqual(d.hour, 11)
+            self.assertEqual(d.utcoffset().total_seconds(), 10800)
+    def test_unapproved_never_sent(self):
+        self.plan['approval'] = None; self.save()
+        c = FakeTelegram()
+        self.assertEqual(f.tick(self.home, True, c, self.now), [])
+        self.assertEqual(c.sent, [])
+    def test_post_only_once(self):
+        c = FakeTelegram()
+        f.tick(self.home, True, c, self.now)
+        f.tick(self.home, True, c, self.now)
+        self.assertEqual(len(c.sent), 1)
+    def test_unknown_no_retry(self):
+        c = FakeTelegram(fail=True)
+        result = f.tick(self.home, True, c, self.now)
+        self.assertEqual(result[0]['status'], 'sending_or_unknown')
+        f.tick(self.home, True, c, self.now)
+        self.assertEqual(len(c.sent), 1)
+    def test_modified_approval_blocks(self):
+        self.plan['posts'][0]['text_ru'] = 'Different'
+        self.save()
+        with self.assertRaisesRegex(f.Stop, 'APPROVED_PLAN_CHANGED'):
+            f.tick(self.home, True, FakeTelegram(), self.now)
+    def test_source_change_blocks(self):
+        self.facts[0]['text'] = 'Different'
+        self.save()
+        with self.assertRaisesRegex(f.Stop, 'FACT_CHANGED'):
+            f.tick(self.home, True, FakeTelegram(), self.now)
+    def test_expired_source_blocks(self):
+        self.facts[0]['valid_until'] = '2099-01-01T00:00:00+03:00'; self.save()
+        with self.assertRaisesRegex(f.Stop, 'FACT_EXPIRED'):
+            f.tick(self.home, True, FakeTelegram(), self.now)
+    def test_reminders_deduplicated(self):
+        c = FakeTelegram()
+        for hours in (24, 1):
+            f.tick(self.home, True, c, self.now - timedelta(hours=hours))
+            f.tick(self.home, True, c, self.now - timedelta(hours=hours))
+        self.assertEqual(len(c.sent), 2)
+        self.assertTrue(all(x[0] == '1234' for x in c.sent))
+    def test_no_false_missed_after_sent(self):
+        c = FakeTelegram()
+        f.tick(self.home, True, c, self.now)
+        f.tick(self.home, True, c, self.now + timedelta(hours=2))
+        self.assertEqual(len(c.sent), 1)
+    def test_late_post_not_published(self):
+        c = FakeTelegram()
+        f.tick(self.home, True, c, self.now + timedelta(hours=2))
+        self.assertEqual(c.sent[0][0], '1234')
+    def test_dry_run_does_not_consume_delivery(self):
+        f.tick(self.home, False, now=self.now)
+        self.assertFalse((self.home / 'deliveries.sqlite').exists())
+        c = FakeTelegram(); f.tick(self.home, True, c, self.now)
+        self.assertEqual(len(c.sent), 1)
+    def test_pause(self):
+        (self.home / 'PAUSE').touch()
+        with self.assertRaisesRegex(f.Stop, 'PAUSED'):
+            f.tick(self.home, True, FakeTelegram(), self.now)
+    def test_media_escape(self):
+        with self.assertRaisesRegex(f.Stop, 'MEDIA_PATH_INVALID'):
+            f.media_path(self.home, {'path': '../facts.json'})
+    def test_review_stale(self):
+        self.plan['posts'][0]['text_ru'] = 'Changed'
+        with self.assertRaisesRegex(f.Stop, 'REVIEW_STALE'):
+            f.validate(self.plan, self.home, self.facts, {})
+    def test_model_pipeline_and_no_overwrite(self):
+        facts = [dict(self.facts[0], id=x) for x in ('a', 'b', 'c')]
+        f.write(self.home / 'facts.json', facts)
+        raw = {'posts': [{k: v for k, v in p.items() if k not in ('id', 'scheduled_at')}
+                         for p in self.plan['posts']]}
+        (self.home / 'plans/2099-11.json').unlink()
+        with patch.object(f, 'llm', side_effect=[raw, {'pass': True, 'issues': []}]) as model:
+            path = f.generate('2099-11', self.home)
+            self.assertEqual(model.call_count, 2)
+        self.assertIsNone(f.read(path)['approval'])
+        with self.assertRaisesRegex(f.Stop, 'PLAN_EXISTS'):
+            f.generate('2099-11', self.home)
+    def test_live_requires_enable(self):
+        with patch.dict(os.environ, {'GSUN_PUBLISH_ENABLED': 'no'}):
+            with self.assertRaisesRegex(f.Stop, 'LIVE_DISABLED'):
+                f.tick(self.home, True, FakeTelegram(), self.now)
+
+
+if __name__ == '__main__':
+    unittest.main()
