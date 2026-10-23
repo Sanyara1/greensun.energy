@@ -1,0 +1,18 @@
+[Unit]
+Description=GSun private editorial bridge (loopback)
+After=network.target
+[Service]
+Type=simple
+EnvironmentFile=%h/.config/gsun-pr/runtime.env
+ExecStart=/usr/bin/python3 %h/gsun-pr/bridge.py
+WorkingDirectory=%h/gsun-pr
+Restart=on-failure
+RestartSec=10
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=%h/.local/share/gsun-pr
+[Install]
+WantedBy=default.target
