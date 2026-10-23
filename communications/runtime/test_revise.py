@@ -67,4 +67,44 @@ class RevisionTests(unittest.TestCase):
             r.revise(self.home,self.revision,lambda *a:{'pass':True,'issues':['still unresolved']})
         self.assertEqual(f.read(self.path),self.plan)
 
+
+class ChunkReviewTests(unittest.TestCase):
+    def setUp(self):
+        self.tmp=tempfile.TemporaryDirectory(); self.addCleanup(self.tmp.cleanup)
+        self.path=Path(self.tmp.name)
+        self.plan={'posts':[{'id':str(i),'text_ru':'RU','text_en':'EN','fact_ids':['f'],'image_brief':'omit'} for i in range(13)]}
+        self.facts=[{'id':'f','text':'Evidence'}]
+        self.config={'LLM_MODEL':'model','LLM_URL':'endpoint'}
+        self.ok={'pass':True,'issues':[]}
+    def run_review(self):
+        return r.review_with_cloudflare(self.plan,self.facts,self.config,self.path)
+    def test_resume_and_compact_payload(self):
+        from unittest.mock import patch
+        with patch.object(r,'review_call',side_effect=[self.ok,f.Stop('REVIEW_OUTPUT_TRUNCATED')]) as call:
+            with self.assertRaisesRegex(f.Stop,'TRUNCATED'): self.run_review()
+            self.assertNotIn('image_brief',call.call_args_list[0].args[1]['posts'][0])
+        with patch.object(r,'review_call',return_value=self.ok) as call:
+            self.assertTrue(self.run_review()['pass']); self.assertEqual(call.call_count,7)
+            self.assertEqual(len(call.call_args.args[1]['posts']),13)
+        with patch.object(r,'review_call') as call:
+            self.assertTrue(self.run_review()['pass']);call.assert_not_called()
+    def test_changed_evidence_invalidates_cache(self):
+        from unittest.mock import patch
+        with patch.object(r,'review_call',return_value=self.ok):self.run_review()
+        self.facts[0]['text']='Changed'
+        with patch.object(r,'review_call',return_value=self.ok) as call:
+            self.run_review();self.assertEqual(call.call_count,8)
+    def test_failed_stage_retained(self):
+        from unittest.mock import patch
+        failed={'pass':False,'issues':[{'post_id':'0','reason':'unsupported'}]}
+        with patch.object(r,'review_call',side_effect=[failed]+[self.ok]*7):
+            self.assertFalse(self.run_review()['pass'])
+        with patch.object(r,'review_call') as call:
+            self.assertFalse(self.run_review()['pass']);call.assert_not_called()
+    def test_invalid_issue_not_cached(self):
+        from unittest.mock import patch
+        with patch.object(r,'review_call',return_value={'pass':False,'issues':['bad']}):
+            with self.assertRaisesRegex(f.Stop,'ISSUE_INVALID'):self.run_review()
+        self.assertEqual(list(self.path.iterdir()),[])
+
 if __name__=='__main__': unittest.main()
