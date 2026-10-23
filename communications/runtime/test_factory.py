@@ -159,7 +159,10 @@ class FactoryTests(unittest.TestCase):
                 self.assertEqual(f.llm([]), {'posts':[]})
                 payload = call.call_args.args[1]
                 self.assertEqual(payload['reasoning_effort'], 'low')
-                self.assertEqual(payload['max_completion_tokens'], 2400)
+                self.assertEqual(payload['max_completion_tokens'], 4800)
+                self.assertEqual(call.call_args.kwargs['timeout'], 120)
+                f.llm([], reviewer=True)
+                self.assertEqual(call.call_args.kwargs['timeout'], 240)
             with patch.object(f, 'request_json', return_value={'choices':[{'finish_reason':'length','message':{'content':'{}'}}]}):
                 with self.assertRaisesRegex(f.Stop, 'MODEL_OUTPUT_TRUNCATED'):
                     f.llm([])
