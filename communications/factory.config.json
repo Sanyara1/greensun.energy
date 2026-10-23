@@ -19,8 +19,10 @@
     {
       "id": "telegram",
       "enabled": false,
-      "destination": null,
-      "blocker": "Public news channel URL and bot admin rights not verified; greensun_energy_bot is a bot, not a channel"
+      "destination": "@Gsun_ai",
+      "blocker": "API identity and can_post_messages not verified; publisher not deployed",
+      "expected_bot_username": "greensun_energy_bot",
+      "verification_status": "owner_reports_permissions_set_api_check_pending"
     },
     {
       "id": "max",
