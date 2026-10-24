@@ -167,6 +167,26 @@ class FactoryTests(unittest.TestCase):
                 with self.assertRaisesRegex(f.Stop, 'MODEL_OUTPUT_TRUNCATED'):
                     f.llm([])
 
+    def test_early_sent_and_unknown_suppress_reminders_and_dry_run(self):
+        import sqlite3
+        for status in ('sent', 'sending_or_unknown'):
+            with self.subTest(status=status):
+                with sqlite3.connect(self.home/'deliveries.sqlite') as db:
+                    db.execute('CREATE TABLE IF NOT EXISTS deliveries(id TEXT PRIMARY KEY,status TEXT,result TEXT)')
+                    db.execute('DELETE FROM deliveries')
+                    db.execute('INSERT INTO deliveries VALUES (?,?,?)',
+                               ('post:'+self.plan['posts'][0]['id']+':'+str(f.CHANNEL),status,'{}'))
+                before=(self.home/'deliveries.sqlite').read_bytes()
+                c=FakeTelegram()
+                for hours in (24,1,0,-2):
+                    at=self.now-timedelta(hours=hours)
+                    f.tick(self.home,False,now=at)
+                    f.tick(self.home,True,c,at)
+                self.assertEqual(c.sent,[])
+                with sqlite3.connect(self.home/'deliveries.sqlite') as db:
+                    self.assertEqual(db.execute('SELECT COUNT(*) FROM deliveries').fetchone()[0],1)
+                self.assertEqual((self.home/'deliveries.sqlite').read_bytes(),before)
+
     def test_live_requires_enable(self):
         with patch.dict(os.environ, {'GSUN_PUBLISH_ENABLED': 'no'}):
             with self.assertRaisesRegex(f.Stop, 'LIVE_DISABLED'):
