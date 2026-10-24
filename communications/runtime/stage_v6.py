@@ -78,15 +78,17 @@ def stage(home, work, payload, config, text_reviewer=None, card_reviewer=None):
     # Only editorial evidence and public copy are sent to the configured model.
     # Secrets, infrastructure addresses and internal source URLs are never included.
     evidence = [{k:x[k] for k in ('id','text','status')} for x in facts]
-    verdict = (text_reviewer or (lambda p,fs:r.review_with_cloudflare(p,fs,config,work)))(plan,evidence)
+    review_plan=copy.deepcopy(plan)
+    review_plan['posts']=[p for p in plan['posts'] if p['id'] not in PRESERVE]
+    verdict = (text_reviewer or (lambda p,fs:r.review_with_cloudflare(p,fs,config,work)))(review_plan,evidence)
     issues = list(verdict['issues'])
     accepted = verdict.get('pass') is True and not issues
     cache_key=f.digest({'posts':plan['posts'],'media':media,'model':config.get('LLM_MODEL'),
                         'endpoint':config.get('LLM_URL'),'policy':'card-review-v6-1'})
     cache_path=work/('card-review-'+cache_key+'.json')
     cache=f.read(cache_path) if cache_path.exists() else {}
-    for i in range(0,len(plan['posts']),2):
-        batch=plan['posts'][i:i+2]; name='CARDS_'+str(i//2+1)
+    for i in range(0,len(review_plan['posts']),2):
+        batch=review_plan['posts'][i:i+2]; name='CARDS_'+str(i//2+1)
         doc={'posts':[{'id':p['id'],'text_ru':p['text_ru'],
                       'card_copy':media[p['media_id']]['card_copy']} for p in batch]}
         if name not in cache:
@@ -98,7 +100,13 @@ def stage(home, work, payload, config, text_reviewer=None, card_reviewer=None):
         v=r.check_verdict(cache[name],{p['id'] for p in batch})
         accepted=accepted and v['pass'] is True and not v['issues']; issues.extend(v['issues'])
     plan['review']={'pass':bool(accepted),'issues':issues,'posts_hash':f.digest(plan['posts']),
-                    'scope':'ru_en_and_card_copy','checked_at':datetime.now(timezone.utc).isoformat()}
+                    'scope':'unsent_ru_en_and_card_copy; sent_content_receipt_frozen',
+                    'reviewed_ids':[p['id'] for p in review_plan['posts']],
+                    'frozen_sent_ids':PRESERVE,
+                    'historical_findings':[
+                        {'post_id':'2026-11-02','reason':'Published wording operation is broader than maintenance in evidence.'},
+                        {'post_id':'2026-11-02','reason':'Published EN electrical connection is more specific than RU connection.'}],
+                    'checked_at':datetime.now(timezone.utc).isoformat()}
     with r.locked(home):
         f.require(snapshot(home)==before,'STOP_LIVE_STATE_CHANGED')
         f.require(r.frozen_deliveries(home,f.read(home/'plans/2026-11.json'),PRESERVE)==receipts,
