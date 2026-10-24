@@ -32,7 +32,7 @@ class StageTests(unittest.TestCase):
         with sqlite3.connect(self.home/'deliveries.sqlite') as db:
             db.execute('create table deliveries(id text primary key,status text,result text)')
             db.execute('insert into deliveries values(?,?,?)',('post:2026-11-02:'+str(f.CHANNEL),'sent',json.dumps({'post_hash':f.digest(post),'channel_id':f.CHANNEL,'message_id':4})))
-        tree=ast.parse((ROOT/'releases/v6/stage-v6-final.py').read_text())
+        tree=ast.parse((ROOT/'releases/v6/stage-v6-final-r1.py').read_text())
         encoded=next(ast.literal_eval(x.value) for x in tree.body if isinstance(x,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='PAYLOAD' for t in x.targets))
         self.payload=json.loads(json.loads(zlib.decompress(base64.b64decode(encoded)))['payload.json'])
         self.config={'LLM_MODEL':'test','LLM_URL':'https://example.invalid'}
@@ -49,6 +49,15 @@ class StageTests(unittest.TestCase):
         self.assertEqual(plan['posts'][1],self.source['plan']['posts'][1])
         self.assertIsNone(plan['approval'])
         self.assertEqual(plan['publication_holds'],{'2026-11-13':'RESERVE_NOT_AUTHORIZED'})
+        self.assertNotIn('2026-11-02',plan['review']['reviewed_ids'])
+        self.assertEqual(len(plan['review']['historical_findings']),2)
+    def test_model_receives_only_unsent_posts(self):
+        def check(p,fs):
+            self.assertEqual(len(p['posts']),12)
+            self.assertNotIn('2026-11-02',[x['id'] for x in p['posts']])
+            return {'pass':True,'issues':[]}
+        s.stage(self.home,self.work,self.payload,self.config,check,lambda a,b:{'pass':True,'issues':[]})
+        self.unchanged()
     def test_rejection_removes_stale_ready(self):
         self.work.mkdir();f.write(self.work/'READY.json',{'stale':True})
         self.assertFalse(self.run_stage(False));self.assertFalse((self.work/'READY.json').exists());self.unchanged()
