@@ -341,8 +341,10 @@ def tick(home, live=False, client=None, now=None):
             owner = client.call('getChat', {'chat_id': os.environ['OWNER_CHAT_ID']})
             require(owner['type'] == 'private', 'OWNER_CHAT_MUST_BE_PRIVATE')
     facts, media = read(home / 'facts.json'), read(home / 'media.json')
-    db = sqlite3.connect(home / 'deliveries.sqlite') if live else None
-    if db:
+    ledger = home / 'deliveries.sqlite'
+    db = sqlite3.connect(ledger) if live else (
+        sqlite3.connect(ledger.resolve().as_uri() + '?mode=ro', uri=True) if ledger.exists() else None)
+    if live:
         db.execute('CREATE TABLE IF NOT EXISTS deliveries(id TEXT PRIMARY KEY,status TEXT,result TEXT)')
     events = []
     try:
@@ -353,6 +355,14 @@ def tick(home, live=False, client=None, now=None):
             require(p['approval']['hash'] == sealed_hash(p), 'APPROVED_PLAN_CHANGED')
             validate(p, home, facts, media)
             for post in p['posts']:
+                key = 'post:' + post['id'] + ':' + str(CHANNEL)
+                receipt = db.execute('SELECT status FROM deliveries WHERE id=?', (key,)).fetchone() if db else None
+                if receipt:
+                    # An early publication needs neither reminders nor another send.
+                    # Unknown outcomes require reconciliation, never automatic retries.
+                    if receipt[0] != 'sent':
+                        events.append({'id': key, 'status': 'blocked_delivery_reconciliation'})
+                    continue
                 due = instant(post['scheduled_at'])
                 remaining = (due - now).total_seconds()
                 if -900 <= remaining <= 0:
