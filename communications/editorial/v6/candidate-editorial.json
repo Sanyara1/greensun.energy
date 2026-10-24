@@ -1,0 +1,365 @@
+{
+  "schema": "gsun.editorial-review-bundle.v1",
+  "status": "NOT_INSTALLABLE_REQUIRES_FACTS_MEDIA_REVIEW",
+  "revision_id": "gsun-november-2026-editorial-v6",
+  "month": "2026-11",
+  "expected_original_hash": "01d37563a58fcb38d876f57084e80f86f65bc42d862292ca0318ae3761d87266",
+  "preserve_sent_ids": [
+    "2026-11-02"
+  ],
+  "published_url": "https://t.me/Gsun_ai/4",
+  "posts": [
+    {
+      "text_ru": "Зачем GSun создаёт цифрового инженера?\n\nВладельцу станции нужен понятный ответ: что показывают данные, откуда взялся вывод и что стоит проверить дальше.\n\nМы развиваем помощника, который связывает вопрос с документами и данными конкретного объекта. Начальный режим — чтение и объяснение. Если сведений недостаточно, это должно быть видно в ответе.\n\nЭто направление разработки GSun. Его готовность будем показывать через конкретные проверки.\n\nИллюстрация: редакционная карточка GSun.",
+      "text_en": "Why is GSun developing a digital engineer?\n\nA site owner needs a clear answer: what the data shows, what supports the conclusion and what to check next.\n\nWe are developing an assistant that connects a question with documents and data from the specific site. The initial mode is reading and explanation. When evidence is insufficient, the answer should make that clear.\n\nThis is GSun’s development direction. We will demonstrate progress through specific checks.\n\nIllustration: GSun editorial card (Russian).",
+      "fact_ids": [
+        "GSUN_DIGITAL_ENGINEER_DIRECTION"
+      ],
+      "media_id": null,
+      "image_brief": "Новая типографическая иллюстрация, не скриншот и не телеметрия. Направление развития. Цифровой инженер GSun: Вопрос пользователя / Документы и данные / Обоснованный ответ",
+      "id": "2026-11-01",
+      "scheduled_at": "2026-11-02T11:00:00+03:00"
+    },
+    {
+      "text_ru": "Проект станции — это ещё и план её обслуживания.\n\nПри подготовке проекта GSun учитывает размещение оборудования, подключение, безопасность и дальнейшую эксплуатацию. Эти вопросы обсуждаем вместе, применительно к конкретному объекту.\n\nОбсудить ваш объект: ceo@gsun.io\n\nИллюстрация: редакционная карточка GSun.",
+      "text_en": "A solar project also needs a maintenance plan.\n\nWhen preparing a project, GSun considers equipment placement, electrical connection, safety and ongoing operation. We discuss these together, based on the conditions at your site.\n\nDiscuss your site with us: ceo@gsun.io\n\nIllustration: GSun editorial card (Russian).",
+      "fact_ids": [
+        "GSUN_WEB_INSTALLATION",
+        "GSUN_WEB_CONTACT"
+      ],
+      "media_id": "card-ru-2026-11-02-c8aa1e86ede7",
+      "image_brief": "Шаблонная карточка: четыре равнозначных пункта «Размещение / Подключение / Безопасность / Обслуживание». Точный текст наносится программно, без выдуманной электрической схемы.",
+      "id": "2026-11-02",
+      "scheduled_at": "2026-11-04T11:00:00+03:00"
+    },
+    {
+      "text_ru": "Как связать график станции с вопросом инженеру?\n\nВ пилоте GSun.AI для Hotel Kristal реализован переход от выбранного дня на графике к черновику вопроса в чате. Контекст станции и даты сохраняется; отправку запускает пользователь.\n\nТак можно обсуждать конкретный период работы объекта. Сам график ещё не устанавливает причину отклонения — для этого нужны подходящие измерения и проверка гипотез.\n\nИллюстрация: редакционная карточка GSun.",
+      "text_en": "How can a station chart become an engineering question?\n\nIn the GSun.AI pilot for Hotel Kristal, the selected chart day can be carried into a draft chat question. The station and date stay in context; the user sends the question.\n\nThis makes it possible to discuss a specific operating period. The chart alone does not establish the cause of a deviation: suitable measurements and hypothesis testing are still needed.\n\nIllustration: GSun editorial card (Russian).",
+      "fact_ids": [
+        "GSUN_PILOT_CHART_TO_CHAT"
+      ],
+      "media_id": null,
+      "image_brief": "Новая типографическая иллюстрация, не скриншот и не телеметрия. Реализовано в пилоте. От графика к вопросу: Выбранная станция / Конкретный день / Черновик вопроса",
+      "id": "2026-11-03",
+      "scheduled_at": "2026-11-06T11:00:00+03:00"
+    },
+    {
+      "text_ru": "Солнечная станция уже установлена?\n\nВ GSun можно обратиться и с действующим объектом. Мы предлагаем обслуживание солнечных электростанций и обсуждаем задачи мониторинга: выработку, нагрузку и состояние оборудования.\n\nОбсудить ваш объект: ceo@gsun.io\n\nИллюстрация: редакционная карточка GSun.",
+      "text_en": "Already have a solar installation?\n\nYou can contact GSun about an existing site. We offer maintenance for solar installations and discuss monitoring needs: generation, load and equipment condition.\n\nDiscuss your site with us: ceo@gsun.io\n\nIllustration: GSun editorial card (Russian).",
+      "fact_ids": [
+        "GSUN_WEB_SERVICES",
+        "GSUN_WEB_MONITORING",
+        "GSUN_WEB_CONTACT"
+      ],
+      "media_id": "card-ru-2026-11-04-605d57441eac",
+      "image_brief": "Предпочтительно одобренное собственное фото действующей станции без персональных данных и серийных номеров. При отсутствии фото — шаблонная текстовая карточка, без имитации клиентского объекта.",
+      "id": "2026-11-04",
+      "scheduled_at": "2026-11-09T11:00:00+03:00"
+    },
+    {
+      "text_ru": "Пропуск на графике — тоже информация.\n\nВ пилоте GSun.AI интервалы между точками больше 15 минут обозначаются отдельно. Линия не достраивается через такой разрыв, а отсутствующие значения не превращаются в нули.\n\nЭто помогает увидеть границу доступных данных. По одному пропуску нельзя заключить, что станция остановилась: сначала нужно выяснить, где потерялись измерения — при сборе, передаче или выдаче.\n\nИллюстрация: редакционная карточка GSun.",
+      "text_en": "A gap in a chart carries information too.\n\nIn the GSun.AI pilot, intervals longer than 15 minutes between points are marked separately. The line is not extended across the gap, and missing values are not turned into zeros.\n\nThis shows the limits of the available data. A gap alone does not prove the station stopped: the next step is to determine whether measurements were lost during collection, transfer or retrieval.\n\nIllustration: GSun editorial card (Russian).",
+      "fact_ids": [
+        "GSUN_PILOT_DATA_GAPS"
+      ],
+      "media_id": null,
+      "image_brief": "Новая типографическая иллюстрация, не скриншот и не телеметрия. Реализовано в пилоте. Пропуск данных виден на графике: Разрыв остаётся разрывом / Нет подстановки нулей / Причина требует проверки",
+      "id": "2026-11-05",
+      "scheduled_at": "2026-11-11T11:00:00+03:00"
+    },
+    {
+      "text_ru": "Нужно обратиться по обслуживанию станции? Попробуйте описать задачу в трёх строках:\n\n• Что вы заметили?\n• Когда это началось?\n• Повторяется ли ситуация?\n\nЗапишите наблюдения своими словами — готовый диагноз не нужен. Это подсказка для обращения, а не инструкция по ремонту.\n\nGSun обслуживает солнечные электростанции. Контакт: ceo@gsun.io\n\nИллюстрация: редакционная карточка GSun.",
+      "text_en": "Need to contact someone about solar installation maintenance? Try describing the issue in three lines:\n\n• What did you notice?\n• When did it start?\n• Does it happen repeatedly?\n\nDescribe your observations in your own words — no diagnosis is needed. This is a guide to making an enquiry, not repair instructions.\n\nGSun provides maintenance for solar installations. Contact: ceo@gsun.io\n\nIllustration: GSun editorial card (Russian).",
+      "fact_ids": [
+        "GSUN_WEB_SERVICES",
+        "GSUN_WEB_CONTACT"
+      ],
+      "media_id": "card-ru-2026-11-06-3c8e8b9c4150",
+      "image_brief": "Типографическая карточка: «Что заметили? / Когда началось? / Повторяется ли?». Текст наносится программно. Без инструкций по ремонту и выдуманных показаний оборудования.",
+      "id": "2026-11-06",
+      "scheduled_at": "2026-11-13T11:00:00+03:00"
+    },
+    {
+      "text_ru": "Паспорт станции: полезно видеть и незаполненные поля.\n\nВ пилоте GSun сведения об объекте, оборудовании, солнечных панелях и источниках измерений сгруппированы в отдельные разделы паспорта. Неизвестные сведения остаются незаполненными.\n\nТак инженер видит, на какие данные можно опереться и что нужно уточнить. Наличие раздела документов пока не означает, что их загрузка уже доступна.\n\nИллюстрация: редакционная карточка GSun.",
+      "text_en": "A station passport should show what is still unknown.\n\nIn the GSun pilot, site details, equipment, solar-panel information and measurement sources are grouped into separate passport sections. Unknown information remains unfilled.\n\nThis helps an engineer see what can support an assessment and what still needs clarification. A documents section does not yet mean document uploads are available.\n\nIllustration: GSun editorial card (Russian).",
+      "fact_ids": [
+        "GSUN_PILOT_STRUCTURED_PASSPORT"
+      ],
+      "media_id": null,
+      "image_brief": "Новая типографическая иллюстрация, не скриншот и не телеметрия. Реализовано в пилоте. Паспорт станции: Объект и оборудование / Источники измерений / Неизвестное обозначено",
+      "id": "2026-11-07",
+      "scheduled_at": "2026-11-16T11:00:00+03:00"
+    },
+    {
+      "text_ru": "Как будем проверять ответы цифрового инженера?\n\nДо испытания задаём вопросы, источники и ожидаемые ответы. Затем проверяем числа, единицы измерения, выбранный объект и поведение при нехватке данных.\n\nВажен и отказ от необоснованного вывода. Уверенный ответ без подходящего источника не считаем успешным.\n\nЭто принятый подход к дальнейшим испытаниям GSun. Результаты каждого прогона будем показывать отдельно.\n\nИллюстрация: редакционная карточка GSun.",
+      "text_en": "How will we test the digital engineer’s answers?\n\nBefore a trial, we define questions, sources and expected answers. We then check numbers, units, the selected site and behaviour when information is missing.\n\nDeclining an unsupported conclusion matters too. A confident answer without a suitable source does not count as success.\n\nThis is GSun’s agreed approach to future trials. Results from each run will be reported separately.\n\nIllustration: GSun editorial card (Russian).",
+      "fact_ids": [
+        "GSUN_ENGINEER_TEST_POLICY"
+      ],
+      "media_id": null,
+      "image_brief": "Новая типографическая иллюстрация, не скриншот и не телеметрия. План испытаний. Как проверять ответ инженера: Источники и числа / Правильный объект / Недостаток доказательств",
+      "id": "2026-11-08",
+      "scheduled_at": "2026-11-18T11:00:00+03:00"
+    },
+    {
+      "text_ru": "Локальная модель — один шаг к автономному помощнику.\n\nДля работы цифрового инженера без облака нужны также доступ к разрешённым данным, проверка прав и сохранение истории.\n\nВ GSun планируем проверять этот путь целиком: качество ответов, задержку, восстановление после потери связи. Работа модели на отдельном компьютере ещё не доказывает автономность всей платформы.\n\nИллюстрация: редакционная карточка GSun.",
+      "text_en": "A local model is one step towards an autonomous assistant.\n\nFor a digital engineer to work without the cloud, it also needs access to authorised data, permission checks and conversation history.\n\nAt GSun, we plan to test that complete path: answer quality, latency and recovery after a connection loss. Running a model on one computer does not yet prove the whole platform is autonomous.\n\nIllustration: GSun editorial card (Russian).",
+      "fact_ids": [
+        "GSUN_LOCAL_AUTONOMY_PLAN"
+      ],
+      "media_id": null,
+      "image_brief": "Новая типографическая иллюстрация, не скриншот и не телеметрия. Архитектурный план. Путь к локальному помощнику: Модель и данные / Права и история / Проверка без облака",
+      "id": "2026-11-09",
+      "scheduled_at": "2026-11-20T11:00:00+03:00"
+    },
+    {
+      "text_ru": "Отчёт полезен, когда понятно происхождение чисел.\n\nВ пилоте GSun реализованы выбор периода и выгрузка отчёта в JSON/CSV. Доступ проверяется по станции; в экспорте сохраняются сведения об источнике и ограничениях данных.\n\nЭто основа для дальнейшего разбора. Сам факт выгрузки не подтверждает точность измерений или прохождение официальной проверки.\n\nИллюстрация: редакционная карточка GSun.",
+      "text_en": "A report is useful when the origin of its numbers is clear.\n\nThe GSun pilot implements period selection and JSON/CSV report export. Access is checked for the station, and exports retain source information and data limitations.\n\nThis supports further analysis. An export alone does not establish measurement accuracy or successful official verification.\n\nIllustration: GSun editorial card (Russian).",
+      "fact_ids": [
+        "GSUN_PILOT_REPORT_EXPORT"
+      ],
+      "media_id": null,
+      "image_brief": "Новая типографическая иллюстрация, не скриншот и не телеметрия. Реализовано в пилоте. Отчёт с происхождением: Выбранный период / JSON / CSV / Источники и ограничения",
+      "id": "2026-11-10",
+      "scheduled_at": "2026-11-23T11:00:00+03:00"
+    },
+    {
+      "text_ru": "Почему для GSun важна проверяемая история данных?\n\nВ направлении Oracle мы ставим задачу сохранять связь показаний с объектом и их происхождением. Подпись данных — часть этой работы.\n\nДля обсуждения сертификатов потребуется отдельно подтвердить измерения, применимую процедуру и отсутствие повторного зачёта одного эффекта. Мы не считаем наличие подписи обещанием автоматической выдачи сертификата.\n\nИллюстрация: редакционная карточка GSun.",
+      "text_en": "Why does a verifiable data history matter to GSun?\n\nWithin the Oracle direction, our goal is to preserve the connection between readings, their site and their origin. Data signing is part of that work.\n\nAny discussion of certificates also requires evidence about measurements, the applicable process and prevention of double counting the same effect. We do not treat a signature as a promise of automatic certificate issuance.\n\nIllustration: GSun editorial card (Russian).",
+      "fact_ids": [
+        "GSUN_ORACLE_PRODUCT_BOUNDARY"
+      ],
+      "media_id": null,
+      "image_brief": "Новая типографическая иллюстрация, не скриншот и не телеметрия. Принцип продукта. Проверяемая история данных: Связь с объектом / Происхождение показаний / Отдельная проверка эффекта",
+      "id": "2026-11-11",
+      "scheduled_at": "2026-11-25T11:00:00+03:00"
+    },
+    {
+      "text_ru": "Несколько производителей — одна рабочая среда для инженера.\n\nДля дальнейшего развития GSun рассматриваем объединение разрешённых данных станций через API производителей. Цель — помочь обслуживающей организации видеть свои объекты в одном месте.\n\nЭто план, а не объявление готовой интеграции. Для каждого подключения предстоит проверить доступные данные, права, задержку и условия API. Облачное подключение само по себе не обеспечивает автономную работу.\n\nИллюстрация: редакционная карточка GSun.",
+      "text_en": "Several manufacturers, one workspace for the engineer.\n\nFor GSun’s further development, we are considering combining authorised station data through manufacturer APIs. The goal is to help service organisations view their sites in one place.\n\nThis is a plan, not an announcement of a completed integration. Each connection requires checks of available data, permissions, latency and API terms. A cloud connection alone does not provide autonomous operation.\n\nIllustration: GSun editorial card (Russian).",
+      "fact_ids": [
+        "GSUN_MANUFACTURER_API_POOLS_PLAN"
+      ],
+      "media_id": null,
+      "image_brief": "Новая типографическая иллюстрация, не скриншот и не телеметрия. План интеграций. Разные станции. Одна рабочая среда.: API производителей / Разрешённые данные / Проверка условий подключения",
+      "id": "2026-11-12",
+      "scheduled_at": "2026-11-27T11:00:00+03:00"
+    },
+    {
+      "text_ru": "Что мы хотим показывать в истории GSun?\n\nЗадачу, проверку, результат и следующий шаг. Для нас важно объяснять и достижения, и ограничения — чтобы было понятно, как развивается цифровой инженер.\n\nПланы будем обозначать как планы, а готовые возможности подтверждать конкретными примерами. Так мы хотим вести разговор с клиентами и будущими партнёрами.\n\nИллюстрация: редакционная карточка GSun.",
+      "text_en": "What do we want GSun’s development story to show?\n\nThe problem, the test, the result and the next step. We want to explain both achievements and limitations so readers can understand how the digital engineer is developing.\n\nPlans will be labelled as plans, and working capabilities supported by specific examples. This is how we want to communicate with clients and future partners.\n\nIllustration: GSun editorial card (Russian).",
+      "fact_ids": [
+        "GSUN_PUBLIC_PROGRESS_POLICY"
+      ],
+      "media_id": null,
+      "image_brief": "Новая типографическая иллюстрация, не скриншот и не телеметрия. Резерв · требует выбора. Как развивается GSun: Задача и проверка / Результат и ограничения / Следующий шаг",
+      "id": "2026-11-13",
+      "scheduled_at": "2026-11-30T11:00:00+03:00"
+    }
+  ],
+  "editorial": [
+    {
+      "post_id": "2026-11-01",
+      "status": "DRAFT_REVIEW_REQUIRED",
+      "release_blockers": [
+        "owner_approval",
+        "model_review",
+        "facts_disclosure",
+        "png_binding"
+      ],
+      "card_title": "Цифровой\nинженер GSun",
+      "card_lines": [
+        "Вопрос пользователя",
+        "Документы и данные",
+        "Обоснованный ответ"
+      ],
+      "card_label": "Направление развития",
+      "note": "Схематическая карточка заменяет скриншот; не требует раскрытия клиентских измерений."
+    },
+    {
+      "post_id": "2026-11-03",
+      "status": "DRAFT_REVIEW_REQUIRED",
+      "release_blockers": [
+        "owner_approval",
+        "model_review",
+        "facts_disclosure",
+        "png_binding"
+      ],
+      "card_title": "От графика\nк вопросу",
+      "card_lines": [
+        "Выбранная станция",
+        "Конкретный день",
+        "Черновик вопроса"
+      ],
+      "card_label": "Реализовано в пилоте",
+      "note": "Схематическая карточка заменяет скриншот; не требует раскрытия клиентских измерений."
+    },
+    {
+      "post_id": "2026-11-04",
+      "status": "KEEP_EXACT",
+      "release_blockers": [
+        "owner_approval"
+      ]
+    },
+    {
+      "post_id": "2026-11-05",
+      "status": "DRAFT_REVIEW_REQUIRED",
+      "release_blockers": [
+        "owner_approval",
+        "model_review",
+        "facts_disclosure",
+        "png_binding"
+      ],
+      "card_title": "Пропуск данных\nвиден на графике",
+      "card_lines": [
+        "Разрыв остаётся разрывом",
+        "Нет подстановки нулей",
+        "Причина требует проверки"
+      ],
+      "card_label": "Реализовано в пилоте",
+      "note": "Схематическая карточка заменяет скриншот; не требует раскрытия клиентских измерений."
+    },
+    {
+      "post_id": "2026-11-06",
+      "status": "KEEP_EXACT",
+      "release_blockers": [
+        "owner_approval"
+      ]
+    },
+    {
+      "post_id": "2026-11-07",
+      "status": "DRAFT_REVIEW_REQUIRED",
+      "release_blockers": [
+        "owner_approval",
+        "model_review",
+        "facts_disclosure",
+        "png_binding"
+      ],
+      "card_title": "Паспорт\nстанции",
+      "card_lines": [
+        "Объект и оборудование",
+        "Источники измерений",
+        "Неизвестное обозначено"
+      ],
+      "card_label": "Реализовано в пилоте",
+      "note": "Схематическая карточка заменяет скриншот; не требует раскрытия клиентских измерений."
+    },
+    {
+      "post_id": "2026-11-08",
+      "status": "DRAFT_REVIEW_REQUIRED",
+      "release_blockers": [
+        "owner_approval",
+        "model_review",
+        "facts_disclosure",
+        "png_binding"
+      ],
+      "card_title": "Как проверять\nответ инженера",
+      "card_lines": [
+        "Источники и числа",
+        "Правильный объект",
+        "Недостаток доказательств"
+      ],
+      "card_label": "План испытаний",
+      "note": "Схематическая карточка заменяет скриншот; не требует раскрытия клиентских измерений."
+    },
+    {
+      "post_id": "2026-11-09",
+      "status": "DRAFT_REVIEW_REQUIRED",
+      "release_blockers": [
+        "owner_approval",
+        "model_review",
+        "facts_disclosure",
+        "png_binding"
+      ],
+      "card_title": "Путь к локальному\nпомощнику",
+      "card_lines": [
+        "Модель и данные",
+        "Права и история",
+        "Проверка без облака"
+      ],
+      "card_label": "Архитектурный план",
+      "note": "Схематическая карточка заменяет скриншот; не требует раскрытия клиентских измерений."
+    },
+    {
+      "post_id": "2026-11-10",
+      "status": "DRAFT_REVIEW_REQUIRED",
+      "release_blockers": [
+        "owner_approval",
+        "model_review",
+        "facts_disclosure",
+        "png_binding"
+      ],
+      "card_title": "Отчёт\nс происхождением",
+      "card_lines": [
+        "Выбранный период",
+        "JSON / CSV",
+        "Источники и ограничения"
+      ],
+      "card_label": "Реализовано в пилоте",
+      "note": "Схематическая карточка заменяет скриншот; не требует раскрытия клиентских измерений."
+    },
+    {
+      "post_id": "2026-11-11",
+      "status": "DRAFT_REVIEW_REQUIRED",
+      "release_blockers": [
+        "owner_approval",
+        "model_review",
+        "facts_disclosure",
+        "png_binding"
+      ],
+      "card_title": "Проверяемая\nистория данных",
+      "card_lines": [
+        "Связь с объектом",
+        "Происхождение показаний",
+        "Отдельная проверка эффекта"
+      ],
+      "card_label": "Принцип продукта",
+      "note": "Схематическая карточка заменяет скриншот; не требует раскрытия клиентских измерений."
+    },
+    {
+      "post_id": "2026-11-12",
+      "status": "DRAFT_REVIEW_REQUIRED",
+      "release_blockers": [
+        "owner_approval",
+        "model_review",
+        "facts_disclosure",
+        "png_binding"
+      ],
+      "card_title": "Разные станции.\nОдна рабочая среда.",
+      "card_lines": [
+        "API производителей",
+        "Разрешённые данные",
+        "Проверка условий подключения"
+      ],
+      "card_label": "План интеграций",
+      "note": "Схематическая карточка заменяет скриншот; не требует раскрытия клиентских измерений."
+    },
+    {
+      "post_id": "2026-11-13",
+      "status": "BLOCKED_FUTURE_EVIDENCE",
+      "release_blockers": [
+        "owner_approval",
+        "model_review",
+        "facts_disclosure",
+        "png_binding",
+        "select_reserve_or_write_actual_month_results"
+      ],
+      "card_title": "Как развивается\nGSun",
+      "card_lines": [
+        "Задача и проверка",
+        "Результат и ограничения",
+        "Следующий шаг"
+      ],
+      "card_label": "Резерв · требует выбора",
+      "note": "Для 30 ноября показан резерв, не заранее сочинённый итог."
+    }
+  ],
+  "approval": null,
+  "review": {
+    "pass": false,
+    "issues": [
+      "MODEL_REVIEW_NOT_RUN"
+    ]
+  },
+  "proposed_facts_file": "proposed-facts.json"
+}
