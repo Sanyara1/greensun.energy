@@ -1,0 +1,10 @@
+[Unit]
+Description=Prepare GSun next month draft
+
+[Timer]
+OnCalendar=*-*-25 10:00:00 Europe/Moscow
+Persistent=true
+Unit=gsun-pr-prepare.service
+
+[Install]
+WantedBy=timers.target

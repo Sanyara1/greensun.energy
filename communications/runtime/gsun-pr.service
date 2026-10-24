@@ -1,0 +1,14 @@
+[Unit]
+Description=GSun approved editorial queue
+After=network-online.target
+
+[Service]
+Type=oneshot
+EnvironmentFile=%h/.config/gsun-pr/runtime.env
+ExecStart=/usr/bin/python3 %h/gsun-pr/factory.py tick --live
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=%h/.local/share/gsun-pr

@@ -1,0 +1,453 @@
+{
+  "plan": {
+    "month": "2026-11",
+    "timezone": "Europe/Moscow",
+    "channel_id": -1004428833073,
+    "posts": [
+      {
+        "text_ru": "Сколько киловатт нужно вашему объекту?\n\nВ GSun подбор начинается с потребления: когда и на что расходуется энергия. Затем подбираем мощность под профиль объекта и обсуждаем условия размещения оборудования.\n\nОбсудить ваш объект: ceo@gsun.io\n\nИллюстрация: редакционная карточка GSun.",
+        "text_en": "How much solar capacity does your site need?\n\nAt GSun, sizing starts with your electricity use: when energy is consumed and what it powers. We then match capacity to your consumption profile and discuss equipment placement.\n\nDiscuss your site with us: ceo@gsun.io\n\nIllustration: GSun editorial card (Russian).",
+        "fact_ids": [
+          "GSUN_WEB_CONSUMPTION",
+          "GSUN_WEB_INSTALLATION",
+          "GSUN_WEB_CONTACT"
+        ],
+        "media_id": "card-ru-2026-11-01-3ef5633ca83e",
+        "image_brief": "Иллюстрация: солнечный свет на нейтральном архитектурном макете крыши, рядом блокнот без читаемого текста. Кремовый фон, тёмно-зелёные акценты. Без чисел, графиков, логотипов и изображения реального клиента.",
+        "id": "2026-11-01",
+        "scheduled_at": "2026-11-02T11:00:00+03:00"
+      },
+      {
+        "text_ru": "Проект станции — это ещё и план её обслуживания.\n\nПри подготовке проекта GSun учитывает размещение оборудования, подключение, безопасность и дальнейшую эксплуатацию. Эти вопросы обсуждаем вместе, применительно к конкретному объекту.\n\nОбсудить ваш объект: ceo@gsun.io\n\nИллюстрация: редакционная карточка GSun.",
+        "text_en": "A solar project also needs a maintenance plan.\n\nWhen preparing a project, GSun considers equipment placement, electrical connection, safety and ongoing operation. We discuss these together, based on the conditions at your site.\n\nDiscuss your site with us: ceo@gsun.io\n\nIllustration: GSun editorial card (Russian).",
+        "fact_ids": [
+          "GSUN_WEB_INSTALLATION",
+          "GSUN_WEB_CONTACT"
+        ],
+        "media_id": "card-ru-2026-11-02-c8aa1e86ede7",
+        "image_brief": "Шаблонная карточка: четыре равнозначных пункта «Размещение / Подключение / Безопасность / Обслуживание». Точный текст наносится программно, без выдуманной электрической схемы.",
+        "id": "2026-11-02",
+        "scheduled_at": "2026-11-04T11:00:00+03:00"
+      },
+      {
+        "text_ru": "У каждой гостиницы — свои условия работы.\n\nGSun предлагает солнечные станции для гостиниц и бизнеса. Подбор мощности начинаем с профиля потребления, а при анализе работы сопоставляем генерацию и нагрузку.\n\nОбсудить ваш объект: ceo@gsun.io\n\nИллюстрация: редакционная карточка GSun.",
+        "text_en": "Every hotel has its own operating conditions.\n\nGSun offers solar installations for hotels and businesses. We start sizing with the consumption profile and compare generation with load when analysing operation.\n\nDiscuss your site with us: ceo@gsun.io\n\nIllustration: GSun editorial card (Russian).",
+        "fact_ids": [
+          "GSUN_WEB_BUSINESS",
+          "GSUN_WEB_CONSUMPTION",
+          "GSUN_WEB_COMPARISON",
+          "GSUN_WEB_CONTACT"
+        ],
+        "media_id": "card-ru-2026-11-03-e9716aa2c1c9",
+        "image_brief": "Иллюстрация: вымышленная небольшая гостиница среди зелени южного региона, солнечные панели на крыше, мягкий дневной свет. Не копировать Hotel Kristal или другие реальные гостиницы; без вывесок и обещаний экономии.",
+        "id": "2026-11-03",
+        "scheduled_at": "2026-11-06T11:00:00+03:00"
+      },
+      {
+        "text_ru": "Солнечная станция уже установлена?\n\nВ GSun можно обратиться и с действующим объектом. Мы предлагаем обслуживание солнечных электростанций и обсуждаем задачи мониторинга: выработку, нагрузку и состояние оборудования.\n\nОбсудить ваш объект: ceo@gsun.io\n\nИллюстрация: редакционная карточка GSun.",
+        "text_en": "Already have a solar installation?\n\nYou can contact GSun about an existing site. We offer maintenance for solar installations and discuss monitoring needs: generation, load and equipment condition.\n\nDiscuss your site with us: ceo@gsun.io\n\nIllustration: GSun editorial card (Russian).",
+        "fact_ids": [
+          "GSUN_WEB_SERVICES",
+          "GSUN_WEB_MONITORING",
+          "GSUN_WEB_CONTACT"
+        ],
+        "media_id": "card-ru-2026-11-04-605d57441eac",
+        "image_brief": "Предпочтительно одобренное собственное фото действующей станции без персональных данных и серийных номеров. При отсутствии фото — шаблонная текстовая карточка, без имитации клиентского объекта.",
+        "id": "2026-11-04",
+        "scheduled_at": "2026-11-09T11:00:00+03:00"
+      },
+      {
+        "text_ru": "Один вопрос к данным станции: как соотносятся генерация и нагрузка?\n\nВ GSun сопоставление этих показателей входит в анализ работы объекта. Попробуйте сформулировать вопрос для такого анализа: «Что происходило с нагрузкой в выбранный период генерации?»\n\nСохраните этот вопрос для следующего разбора работы станции.\n\nИллюстрация: редакционная карточка GSun.",
+        "text_en": "One question for your station data: how do generation and load compare?\n\nAt GSun, comparing these measurements is part of analysing a site’s operation. Try framing a question for that analysis: “What was happening to the load during the selected generation period?”\n\nSave this question for your next review of the station’s operation.\n\nIllustration: GSun editorial card (Russian).",
+        "fact_ids": [
+          "GSUN_WEB_COMPARISON"
+        ],
+        "media_id": "card-ru-2026-11-05-23adcd7b2a86",
+        "image_brief": "Учебная типографическая карточка: «Генерация ↔ Нагрузка» и «Один период для сравнения». Текст наносится программно. Без выдуманных показаний, графиков и имитации интерфейса.",
+        "id": "2026-11-05",
+        "scheduled_at": "2026-11-11T11:00:00+03:00"
+      },
+      {
+        "text_ru": "Нужно обратиться по обслуживанию станции? Попробуйте описать задачу в трёх строках:\n\n• Что вы заметили?\n• Когда это началось?\n• Повторяется ли ситуация?\n\nЗапишите наблюдения своими словами — готовый диагноз не нужен. Это подсказка для обращения, а не инструкция по ремонту.\n\nGSun обслуживает солнечные электростанции. Контакт: ceo@gsun.io\n\nИллюстрация: редакционная карточка GSun.",
+        "text_en": "Need to contact someone about solar installation maintenance? Try describing the issue in three lines:\n\n• What did you notice?\n• When did it start?\n• Does it happen repeatedly?\n\nDescribe your observations in your own words — no diagnosis is needed. This is a guide to making an enquiry, not repair instructions.\n\nGSun provides maintenance for solar installations. Contact: ceo@gsun.io\n\nIllustration: GSun editorial card (Russian).",
+        "fact_ids": [
+          "GSUN_WEB_SERVICES",
+          "GSUN_WEB_CONTACT"
+        ],
+        "media_id": "card-ru-2026-11-06-3c8e8b9c4150",
+        "image_brief": "Типографическая карточка: «Что заметили? / Когда началось? / Повторяется ли?». Текст наносится программно. Без инструкций по ремонту и выдуманных показаний оборудования.",
+        "id": "2026-11-06",
+        "scheduled_at": "2026-11-13T11:00:00+03:00"
+      },
+      {
+        "text_ru": "Сочи и Краснодарский край — основной регион работы GSun. Проекты на Кавказе рассматриваем по запросу.\n\nПроектируем, устанавливаем и обслуживаем солнечные электростанции. Обсудить можно как новую станцию, так и уже работающий объект.\n\nОбсудить ваш объект: ceo@gsun.io\n\nИллюстрация: редакционная карточка GSun.",
+        "text_en": "Sochi and Krasnodar Krai are GSun’s main service area. Projects elsewhere in the Caucasus are considered on request.\n\nWe design, install and maintain solar installations. You can contact us about a new project or an existing site.\n\nDiscuss your site with us: ceo@gsun.io\n\nIllustration: GSun editorial card (Russian).",
+        "fact_ids": [
+          "GSUN_WEB_REGION",
+          "GSUN_WEB_SERVICES",
+          "GSUN_WEB_CONTACT"
+        ],
+        "media_id": "card-ru-2026-11-07-023521b152d9",
+        "image_brief": "Шаблонная типографическая карточка «Сочи · Краснодарский край» и отдельная строка «Кавказ — по запросу». Не генерировать географическую карту и не отмечать несуществующие офисы.",
+        "id": "2026-11-07",
+        "scheduled_at": "2026-11-16T11:00:00+03:00"
+      },
+      {
+        "text_ru": "Небольшое упражнение для владельца объекта: разделите лист на три части — утро, день, вечер.\n\nВ каждой запишите, какое оборудование обычно работает. Пока без расчётов: задача — описать привычный режим объекта своими словами.\n\nВ GSun подбор станции начинается с того, когда и на что расходуется энергия. Такой список можно взять на первое обсуждение.\n\nИллюстрация: редакционная карточка GSun.",
+        "text_en": "A small exercise for a property owner: divide a sheet into three sections — morning, afternoon and evening.\n\nIn each section, list the equipment that usually operates. No calculations yet: the aim is to describe the property’s usual routine in your own words.\n\nAt GSun, solar sizing starts with when electricity is used and what it powers. You can bring this list to an initial discussion.\n\nIllustration: GSun editorial card (Russian).",
+        "fact_ids": [
+          "GSUN_WEB_CONSUMPTION"
+        ],
+        "media_id": "card-ru-2026-11-08-3776cc55fbf6",
+        "image_brief": "Шаблон пустого дневника: три колонки «Утро / День / Вечер» с пустыми строками. Текст наносится программно. Без клиентских данных, чисел и изображений готового интерфейса GSun.",
+        "id": "2026-11-08",
+        "scheduled_at": "2026-11-18T11:00:00+03:00"
+      },
+      {
+        "text_ru": "Попробуйте закончить одну фразу: «После обсуждения с инженером я хочу понять…»\n\nНапример: какие этапы включает установка станции или какие работы по обслуживанию стоит обсудить.\n\nВыберите один главный вопрос. Это небольшое упражнение поможет обозначить желаемый результат разговора.\n\nGSun занимается проектированием, установкой и обслуживанием солнечных электростанций. Написать: ceo@gsun.io\n\nИллюстрация: редакционная карточка GSun.",
+        "text_en": "Try completing one sentence: “After speaking with an engineer, I want to understand…”\n\nFor example: which stages a solar installation involves or which maintenance tasks are worth discussing.\n\nChoose one main question. This small exercise can help define what you want to get out of the conversation.\n\nGSun provides solar installation design, installation and maintenance services. Email: ceo@gsun.io\n\nIllustration: GSun editorial card (Russian).",
+        "fact_ids": [
+          "GSUN_WEB_SERVICES",
+          "GSUN_WEB_CONTACT"
+        ],
+        "media_id": "card-ru-2026-11-09-2b0fa998ad7d",
+        "image_brief": "Типографическая карточка с фразой «После разговора с инженером я хочу понять…» и пустым полем для одного вопроса. Текст наносится программно. Без обещаний результата.",
+        "id": "2026-11-09",
+        "scheduled_at": "2026-11-20T11:00:00+03:00"
+      },
+      {
+        "text_ru": "Работа станции — это история измерений.\n\nЦифровое направление GSun объединяет историю показаний, учёт энергии и подготовку данных для дальнейшей проверки. Для бизнеса наш подход включает сопоставление генерации и нагрузки.\n\nОбсудить ваш объект: ceo@gsun.io\n\nИллюстрация: редакционная карточка GSun.",
+        "text_en": "A solar installation has a measurement history.\n\nGSun’s digital work brings together measurement history, energy accounting and data preparation for further review. For businesses, our approach includes comparing generation with load.\n\nDiscuss your site with us: ceo@gsun.io\n\nIllustration: GSun editorial card (Russian).",
+        "fact_ids": [
+          "GSUN_WEB_DATA",
+          "GSUN_WEB_COMPARISON",
+          "GSUN_WEB_CONTACT"
+        ],
+        "media_id": "card-ru-2026-11-10-64d3bd1f36af",
+        "image_brief": "Иллюстрация: абстрактный упорядоченный архив карточек в зелёно-кремовой гамме, солнечный свет. Без цифровых показаний, официальных печатей и сертификатов.",
+        "id": "2026-11-10",
+        "scheduled_at": "2026-11-23T11:00:00+03:00"
+      },
+      {
+        "text_ru": "Подготовленные данные и официальная проверка — разные этапы.\n\nGSun готовит энергетические данные и историю измерений для анализа и дальнейшей проверки. Официальная валидация, верификация и выпуск углеродных единиц проходят отдельными процедурами уполномоченных организаций.\n\nОбсудить подготовку данных по вашей станции: ceo@gsun.io\n\nИллюстрация: редакционная карточка GSun.",
+        "text_en": "Preparing data and carrying out an official assessment are separate stages.\n\nGSun prepares energy data and measurement history for analysis and further review. Official validation, verification and the issuance of carbon units follow separate procedures handled by authorised organisations.\n\nTo discuss data preparation for your installation, email ceo@gsun.io\n\nIllustration: GSun editorial card (Russian).",
+        "fact_ids": [
+          "GSUN_WEB_MRV_BOUNDARY",
+          "GSUN_WEB_DATA",
+          "GSUN_WEB_CONTACT"
+        ],
+        "media_id": "card-ru-2026-11-11-f4843ef53fb0",
+        "image_brief": "Шаблонная карточка из двух отдельных блоков: «GSun: подготовка данных» и «Уполномоченные организации: официальные процедуры». Без государственных символов, печатей, сертификатов и имитации одобрения.",
+        "id": "2026-11-11",
+        "scheduled_at": "2026-11-25T11:00:00+03:00"
+      },
+      {
+        "text_ru": "Работаете с гостиницами или другими коммерческими объектами?\n\nGSun предлагает решения солнечной энергетики для бизнеса: от проектирования и установки до обслуживания. Начать обсуждение можно с условий объекта, профиля потребления и задач мониторинга.\n\nДля первого контакта: ceo@gsun.io\n\nИллюстрация: редакционная карточка GSun.",
+        "text_en": "Do you work with hotels or other commercial properties?\n\nGSun offers solar energy services for businesses, from design and installation to maintenance. A discussion can start with site conditions, the consumption profile and monitoring needs.\n\nGet in touch at ceo@gsun.io\n\nIllustration: GSun editorial card (Russian).",
+        "fact_ids": [
+          "GSUN_WEB_BUSINESS",
+          "GSUN_WEB_SERVICES",
+          "GSUN_WEB_CONSUMPTION",
+          "GSUN_WEB_MONITORING",
+          "GSUN_WEB_CONTACT"
+        ],
+        "media_id": "card-ru-2026-11-12-61acabe75ea3",
+        "image_brief": "Иллюстрация: рабочий стол с нейтральным макетом здания и солнечной панелью, без людей, логотипов партнёров и подписанных договоров. Образ обсуждения проекта, не свидетельство заключённого партнёрства.",
+        "id": "2026-11-12",
+        "scheduled_at": "2026-11-27T11:00:00+03:00"
+      },
+      {
+        "text_ru": "Новая станция, обслуживание или мониторинг — с какой задачей вы сейчас?\n\nВ GSun можно обратиться с идеей проекта или с уже работающей солнечной станцией. Расскажите об объекте и цели обращения, чтобы обсудить следующий шаг.\n\nОбсудить ваш объект: ceo@gsun.io\n\nИллюстрация: редакционная карточка GSun.",
+        "text_en": "A new installation, maintenance or monitoring — what are you working on?\n\nYou can contact GSun with an idea for a project or an existing solar installation. Tell us about your site and your goal so we can discuss the next step.\n\nDiscuss your site with us: ceo@gsun.io\n\nIllustration: GSun editorial card (Russian).",
+        "fact_ids": [
+          "GSUN_WEB_CONTACT",
+          "GSUN_WEB_SERVICES",
+          "GSUN_WEB_MONITORING"
+        ],
+        "media_id": "card-ru-2026-11-13-f55da8452567",
+        "image_brief": "Шаблонная карточка с тремя направлениями «Новая станция / Обслуживание / Мониторинг» и адресом gsun.ai/start. Без QR до проверки целевого адреса; текст наносить программно.",
+        "id": "2026-11-13",
+        "scheduled_at": "2026-11-30T11:00:00+03:00"
+      }
+    ],
+    "fact_hashes": {
+      "GSUN_WEB_SERVICES": "950396850500781accdfe5a0f8cb9228f52ebf1c1c65536a134f318ce1251d58",
+      "GSUN_WEB_REGION": "3f006bd16b9f4e504622f46a0967bf896b9fa2cd0f1862376f962b5cf5120451",
+      "GSUN_WEB_BUSINESS": "36f59ca948904dd5af03486e6576787680953fda9664cb8efad8aa614d33780c",
+      "GSUN_WEB_CONSUMPTION": "34770b5c1bb3a07acf32b39d94fec10139fa79fd8e684d2fc61dfd544b0cc75d",
+      "GSUN_WEB_INSTALLATION": "f2170235977ae8d554e8ba1b5cb8a7e479658791218431eeab26233fef1f7c36",
+      "GSUN_WEB_MONITORING": "3812a86e8dc77412fa86d74032c2640f12c64ec3a9689f43b3e0e1f8d4367873",
+      "GSUN_WEB_DATA": "5e68bc631fd34d282b66820912a8702d1c0cc4e7a478f1f4b48cbc89733b8909",
+      "GSUN_WEB_COMPARISON": "eb5397e04d31d349e9294a0509346aae7838c8610e5a57c55be78eb53fbc0a4d",
+      "GSUN_WEB_MRV_BOUNDARY": "22d8b90547583e2f53d00c055d4ed467c84c5030ba98334996ed546a37715c27",
+      "GSUN_WEB_CONTACT": "53c127453f868df7bfbec8ba4b459a523417f12dabc62f8c134038d7ed1c42a3"
+    },
+    "media_hashes": {
+      "card-ru-2026-11-01-3ef5633ca83e": "519cc09e2ac72827b6b6cf29209d625614b3c3481f900d421ac8e175e7b227e4",
+      "card-ru-2026-11-02-c8aa1e86ede7": "6acbcdcba18b5aec6a98253444da7a34d601d7b598d2226e3e6d88a6dde084af",
+      "card-ru-2026-11-03-e9716aa2c1c9": "e3e9ba7d32e47b341ebf2df32e914b632d40b1844ef7afa58cd6ec42acd40d10",
+      "card-ru-2026-11-04-605d57441eac": "9c8df4701fc8aac9716a3cf75c1a0d61b93030cf35957f26fc19c08a3ed86868",
+      "card-ru-2026-11-05-23adcd7b2a86": "b509c79971b3bf4cee7aec9181e653268620062c38cb1692161426b0fe19bf45",
+      "card-ru-2026-11-06-3c8e8b9c4150": "4349597a879b245ef774c0469bd3fa63b09015cb9e830034ad8d265dd3c6c4c9",
+      "card-ru-2026-11-07-023521b152d9": "45673a8349c196822398b7b6ac9e7b4340ffaf3b241d13a95725b88815b306cb",
+      "card-ru-2026-11-08-3776cc55fbf6": "2b9d2b7d452e00bf3388fb917115ba0d4adeb19d1e77ec1a014d1994be46a3ba",
+      "card-ru-2026-11-09-2b0fa998ad7d": "7d738c36ffc2acdb5ac0daf94182611f929895308d9bdcd0fc541ff4329dddf9",
+      "card-ru-2026-11-10-64d3bd1f36af": "82a5fa15a0e61ea0174fb13f9bedc09de5a8d61eaad5d0da93201167bb2e9976",
+      "card-ru-2026-11-11-f4843ef53fb0": "449b1bbf3a6bf01d1975d4ba8847964a31ef30971a278717aab4125096d9028e",
+      "card-ru-2026-11-12-61acabe75ea3": "bb4eff4fd3cae7c29a3a09aa1052c90c3173899dd8d3b004b6f47834563fd8d6",
+      "card-ru-2026-11-13-f55da8452567": "46c4ed60fc85743b8b682e632158783a0e8ff58497104fefd45eabf2e10bdd11"
+    },
+    "approval": null,
+    "review": {
+      "pass": true,
+      "issues": [],
+      "posts_hash": "64e884e2a39fcebe7f3ffa563df4316407e06c5510c31eef1858897d10979ee5",
+      "scope": "captions_and_card_copy; owner_visual_review_required",
+      "checked_at": "2026-10-23T23:00:31.468786+00:00"
+    },
+    "editorial_revision": "gsun-november-2026-editorial-v5",
+    "revision_of": "b3baa131182b5efb51771a993fd6b163b65e23a4d4685688528ea57c5895eb2a",
+    "media_revision": "gsun-november-2026-cards-ru-v1"
+  },
+  "facts": [
+    {
+      "id": "GSUN_WEB_SERVICES",
+      "public": true,
+      "verified": true,
+      "status": "service",
+      "source_url": "https://greensun.energy/",
+      "text": "GSun предлагает проектирование, установку, подключение и обслуживание солнечных электростанций.",
+      "checked_at": "2026-10-24T00:32:03.965068+03:00",
+      "valid_until": "2026-11-30T23:59:59+03:00",
+      "verification_basis": "Сверено с текстом страницы на VPS, предоставленным владельцем 24.10.2026. Подтверждено содержание заявления компании, не независимое испытание. valid_until — срок редакторской пересверки.",
+      "source_sha256": "aa4f1a05ec56461f1784ac56b11a491931dbb5ad51c94d53bd9ab13702fb4c96"
+    },
+    {
+      "id": "GSUN_WEB_REGION",
+      "public": true,
+      "verified": true,
+      "status": "service",
+      "source_url": "https://greensun.energy/",
+      "text": "Основной регион услуг GSun — Сочи и Краснодарский край. Проекты на Кавказе рассматриваются по запросу.",
+      "checked_at": "2026-10-24T00:32:03.965068+03:00",
+      "valid_until": "2026-11-30T23:59:59+03:00",
+      "verification_basis": "Сверено с текстом страницы на VPS, предоставленным владельцем 24.10.2026. Подтверждено содержание заявления компании, не независимое испытание. valid_until — срок редакторской пересверки.",
+      "source_sha256": "aa4f1a05ec56461f1784ac56b11a491931dbb5ad51c94d53bd9ab13702fb4c96"
+    },
+    {
+      "id": "GSUN_WEB_BUSINESS",
+      "public": true,
+      "verified": true,
+      "status": "service",
+      "source_url": "https://greensun.energy/",
+      "text": "GSun предлагает решения солнечной энергетики для гостиниц и бизнеса с учётом условий конкретного объекта.",
+      "checked_at": "2026-10-24T00:32:03.965068+03:00",
+      "valid_until": "2026-11-30T23:59:59+03:00",
+      "verification_basis": "Сверено с текстом страницы на VPS, предоставленным владельцем 24.10.2026. Подтверждено содержание заявления компании, не независимое испытание. valid_until — срок редакторской пересверки.",
+      "source_sha256": "aa4f1a05ec56461f1784ac56b11a491931dbb5ad51c94d53bd9ab13702fb4c96"
+    },
+    {
+      "id": "GSUN_WEB_CONSUMPTION",
+      "public": true,
+      "verified": true,
+      "status": "service",
+      "source_url": "https://greensun.energy/",
+      "text": "При подборе станции GSun начинает с анализа потребления: когда и на что расходуется энергия. Мощность подбирается под профиль объекта.",
+      "checked_at": "2026-10-24T00:32:03.965068+03:00",
+      "valid_until": "2026-11-30T23:59:59+03:00",
+      "verification_basis": "Сверено с текстом страницы на VPS, предоставленным владельцем 24.10.2026. Подтверждено содержание заявления компании, не независимое испытание. valid_until — срок редакторской пересверки.",
+      "source_sha256": "aa4f1a05ec56461f1784ac56b11a491931dbb5ad51c94d53bd9ab13702fb4c96"
+    },
+    {
+      "id": "GSUN_WEB_INSTALLATION",
+      "public": true,
+      "verified": true,
+      "status": "service",
+      "source_url": "https://greensun.energy/",
+      "text": "При подготовке проекта GSun учитывает размещение оборудования, подключение, безопасность и дальнейшее обслуживание.",
+      "checked_at": "2026-10-24T00:32:03.965068+03:00",
+      "valid_until": "2026-11-30T23:59:59+03:00",
+      "verification_basis": "Сверено с текстом страницы на VPS, предоставленным владельцем 24.10.2026. Подтверждено содержание заявления компании, не независимое испытание. valid_until — срок редакторской пересверки.",
+      "source_sha256": "aa4f1a05ec56461f1784ac56b11a491931dbb5ad51c94d53bd9ab13702fb4c96"
+    },
+    {
+      "id": "GSUN_WEB_MONITORING",
+      "public": true,
+      "verified": true,
+      "status": "service",
+      "source_url": "https://greensun.energy/",
+      "text": "На сайте GSun описан мониторинг выработки, нагрузки и состояния оборудования. Это не подтверждает дистанционное изменение параметров или совместимость со всеми моделями.",
+      "checked_at": "2026-10-24T00:32:03.965068+03:00",
+      "valid_until": "2026-11-30T23:59:59+03:00",
+      "verification_basis": "Сверено с текстом страницы на VPS, предоставленным владельцем 24.10.2026. Подтверждено содержание заявления компании, не независимое испытание. valid_until — срок редакторской пересверки.",
+      "source_sha256": "aa4f1a05ec56461f1784ac56b11a491931dbb5ad51c94d53bd9ab13702fb4c96"
+    },
+    {
+      "id": "GSUN_WEB_DATA",
+      "public": true,
+      "verified": true,
+      "status": "service",
+      "source_url": "https://greensun.energy/",
+      "text": "На сайте GSun цифровая платформа описана как история измерений, цифровой учёт энергии и подготовка данных для дальнейшей проверки. Не заявлять независимую сертификацию этих функций.",
+      "checked_at": "2026-10-24T00:32:03.965068+03:00",
+      "valid_until": "2026-11-30T23:59:59+03:00",
+      "verification_basis": "Сверено с текстом страницы на VPS, предоставленным владельцем 24.10.2026. Подтверждено содержание заявления компании, не независимое испытание. valid_until — срок редакторской пересверки.",
+      "source_sha256": "aa4f1a05ec56461f1784ac56b11a491931dbb5ad51c94d53bd9ab13702fb4c96"
+    },
+    {
+      "id": "GSUN_WEB_COMPARISON",
+      "public": true,
+      "verified": true,
+      "status": "service",
+      "source_url": "https://greensun.energy/",
+      "text": "Подход GSun для бизнеса включает сопоставление генерации и нагрузки и сохранение истории для анализа. Гарантированный процент экономии или срок окупаемости не установлен.",
+      "checked_at": "2026-10-24T00:32:03.965068+03:00",
+      "valid_until": "2026-11-30T23:59:59+03:00",
+      "verification_basis": "Сверено с текстом страницы на VPS, предоставленным владельцем 24.10.2026. Подтверждено содержание заявления компании, не независимое испытание. valid_until — срок редакторской пересверки.",
+      "source_sha256": "aa4f1a05ec56461f1784ac56b11a491931dbb5ad51c94d53bd9ab13702fb4c96"
+    },
+    {
+      "id": "GSUN_WEB_MRV_BOUNDARY",
+      "public": true,
+      "verified": true,
+      "status": "educational",
+      "source_url": "https://greensun.energy/",
+      "text": "GSun готовит энергетические данные. Согласно оговорке на сайте, официальная валидация, верификация и выпуск углеродных единиц являются отдельными процедурами уполномоченных организаций. Не представлять мониторинг как уже выданный официальный сертификат.",
+      "checked_at": "2026-10-24T00:32:03.965068+03:00",
+      "valid_until": "2026-11-30T23:59:59+03:00",
+      "verification_basis": "Сверено с текстом страницы на VPS, предоставленным владельцем 24.10.2026. Подтверждено содержание заявления компании, не независимое испытание. valid_until — срок редакторской пересверки.",
+      "source_sha256": "aa4f1a05ec56461f1784ac56b11a491931dbb5ad51c94d53bd9ab13702fb4c96"
+    },
+    {
+      "id": "GSUN_WEB_CONTACT",
+      "public": true,
+      "verified": true,
+      "status": "service",
+      "source_url": "https://greensun.energy/",
+      "text": "Обсудить проект с GSun можно по телефону +7 928 811-77-22 или почте ceo@gsun.io. Обратиться можно как с существующей станцией, так и с идеей нового объекта.",
+      "checked_at": "2026-10-24T00:32:03.965068+03:00",
+      "valid_until": "2026-11-30T23:59:59+03:00",
+      "verification_basis": "Сверено с текстом страницы на VPS, предоставленным владельцем 24.10.2026. Подтверждено содержание заявления компании, не независимое испытание. valid_until — срок редакторской пересверки.",
+      "source_sha256": "aa4f1a05ec56461f1784ac56b11a491931dbb5ad51c94d53bd9ab13702fb4c96"
+    }
+  ],
+  "media": {
+    "card-ru-2026-11-01-3ef5633ca83e": {
+      "path": "gsun-november-2026-cards-ru-v1/gsun-2026-11-01-ru.png",
+      "sha256": "3ef5633ca83e33c12c78ce400a68f8d9ef0931b0b7fda5ea802ac1031bd827e5",
+      "rights_confirmed": true,
+      "kind": "illustration",
+      "provenance": "Original GSun programmatic typography; DejaVu font; no client photograph",
+      "language": "ru",
+      "card_copy": "GSun Energy\nСолнечная энергия / практика\nС чего начать\nсолнечную станцию?\nКогда расходуется энергия\nНа что она расходуется\nМощность под профиль объекта\nceo@gsun.io"
+    },
+    "card-ru-2026-11-02-c8aa1e86ede7": {
+      "path": "gsun-november-2026-cards-ru-v1/gsun-2026-11-02-ru.png",
+      "sha256": "c8aa1e86ede77882b2f49ad4da3f145e466991cdd3ade2d49726624cde20fe52",
+      "rights_confirmed": true,
+      "kind": "illustration",
+      "provenance": "Original GSun programmatic typography; DejaVu font; no client photograph",
+      "language": "ru",
+      "card_copy": "GSun Energy\nСолнечная энергия / практика\nПродумать\nдо монтажа\nРазмещение\nПодключение\nБезопасность\nОбслуживание\nceo@gsun.io"
+    },
+    "card-ru-2026-11-03-e9716aa2c1c9": {
+      "path": "gsun-november-2026-cards-ru-v1/gsun-2026-11-03-ru.png",
+      "sha256": "e9716aa2c1c94d091d7f1159cb6419fb9e553d74190c107326027251940324c7",
+      "rights_confirmed": true,
+      "kind": "illustration",
+      "provenance": "Original GSun programmatic typography; DejaVu font; no client photograph",
+      "language": "ru",
+      "card_copy": "GSun Energy\nСолнечная энергия / практика\nУ каждой гостиницы\nсвой режим\nПотребление → подбор мощности\nГенерация ↔ нагрузка\nceo@gsun.io"
+    },
+    "card-ru-2026-11-04-605d57441eac": {
+      "path": "gsun-november-2026-cards-ru-v1/gsun-2026-11-04-ru.png",
+      "sha256": "605d57441eac8ccb651d0a85988085b5eca130fbc896f326a85523c69f804db4",
+      "rights_confirmed": true,
+      "kind": "illustration",
+      "provenance": "Original GSun programmatic typography; DejaVu font; no client photograph",
+      "language": "ru",
+      "card_copy": "GSun Energy\nСолнечная энергия / практика\nСтанция\nуже работает?\nОбслуживание\nЗадачи мониторинга\nceo@gsun.io"
+    },
+    "card-ru-2026-11-05-23adcd7b2a86": {
+      "path": "gsun-november-2026-cards-ru-v1/gsun-2026-11-05-ru.png",
+      "sha256": "23adcd7b2a8626d1e3ca7d896677670a66b14e61d5f0f66f29c081c960465548",
+      "rights_confirmed": true,
+      "kind": "illustration",
+      "provenance": "Original GSun programmatic typography; DejaVu font; no client photograph",
+      "language": "ru",
+      "card_copy": "GSun Energy\nСолнечная энергия / практика\nОдин период.\nДва показателя.\nГенерация\nНагрузка\nceo@gsun.io\nВопрос для анализа, не показания станции"
+    },
+    "card-ru-2026-11-06-3c8e8b9c4150": {
+      "path": "gsun-november-2026-cards-ru-v1/gsun-2026-11-06-ru.png",
+      "sha256": "3c8e8b9c415013e12921b92a4226c642462dbcdde0f276d3b1e5d17d3fff1b9e",
+      "rights_confirmed": true,
+      "kind": "illustration",
+      "provenance": "Original GSun programmatic typography; DejaVu font; no client photograph",
+      "language": "ru",
+      "card_copy": "GSun Energy\nСолнечная энергия / практика\nКак описать\nзадачу обслуживания\nЧто заметили?\nКогда началось?\nПовторяется ли?\nceo@gsun.io"
+    },
+    "card-ru-2026-11-07-023521b152d9": {
+      "path": "gsun-november-2026-cards-ru-v1/gsun-2026-11-07-ru.png",
+      "sha256": "023521b152d9869f8cddfa91e1281ef9e5738a06a380ba45ba87fb7f9f3ff564",
+      "rights_confirmed": true,
+      "kind": "illustration",
+      "provenance": "Original GSun programmatic typography; DejaVu font; no client photograph",
+      "language": "ru",
+      "card_copy": "GSun Energy\nСолнечная энергия / практика\nСочи.\nКраснодарский край.\nОсновной регион работы\nКавказ — по запросу\nceo@gsun.io"
+    },
+    "card-ru-2026-11-08-3776cc55fbf6": {
+      "path": "gsun-november-2026-cards-ru-v1/gsun-2026-11-08-ru.png",
+      "sha256": "3776cc55fbf65711bec9382fdd8e50f159ed7d83b4a96c630b27e04de34f6666",
+      "rights_confirmed": true,
+      "kind": "illustration",
+      "provenance": "Original GSun programmatic typography; DejaVu font; no client photograph",
+      "language": "ru",
+      "card_copy": "GSun Energy\nСолнечная энергия / практика\nДневник\nпотребления\nУтро\nДень\nВечер\nceo@gsun.io"
+    },
+    "card-ru-2026-11-09-2b0fa998ad7d": {
+      "path": "gsun-november-2026-cards-ru-v1/gsun-2026-11-09-ru.png",
+      "sha256": "2b0fa998ad7d1974698822bc53a7ba4be4e4a694676820503205a8d50c305a93",
+      "rights_confirmed": true,
+      "kind": "illustration",
+      "provenance": "Original GSun programmatic typography; DejaVu font; no client photograph",
+      "language": "ru",
+      "card_copy": "GSun Energy\nСолнечная энергия / практика\nОдин разговор.\nОдин главный вопрос.\nПосле разговора с инженером\nя хочу понять…\nceo@gsun.io"
+    },
+    "card-ru-2026-11-10-64d3bd1f36af": {
+      "path": "gsun-november-2026-cards-ru-v1/gsun-2026-11-10-ru.png",
+      "sha256": "64d3bd1f36af32b6b88e16b69d001aa3f132af2cd5cdab4493339c9185510ae2",
+      "rights_confirmed": true,
+      "kind": "illustration",
+      "provenance": "Original GSun programmatic typography; DejaVu font; no client photograph",
+      "language": "ru",
+      "card_copy": "GSun Energy\nСолнечная энергия / практика\nУ станции есть\nистория измерений\nИстория показаний\nУчёт энергии\nДанные для проверки\nceo@gsun.io"
+    },
+    "card-ru-2026-11-11-f4843ef53fb0": {
+      "path": "gsun-november-2026-cards-ru-v1/gsun-2026-11-11-ru.png",
+      "sha256": "f4843ef53fb0f4b2b19a7ae87a9b92f54a3de57df08899b516f29b62937f24e2",
+      "rights_confirmed": true,
+      "kind": "illustration",
+      "provenance": "Original GSun programmatic typography; DejaVu font; no client photograph",
+      "language": "ru",
+      "card_copy": "GSun Energy\nСолнечная энергия / практика\nДанные и проверка:\nразные этапы\nGSun → подготовка данных\nУполномоченные организации\n→ официальные процедуры\nceo@gsun.io"
+    },
+    "card-ru-2026-11-12-61acabe75ea3": {
+      "path": "gsun-november-2026-cards-ru-v1/gsun-2026-11-12-ru.png",
+      "sha256": "61acabe75ea3280921e425e7a770d0baa8ee7ca323da34aefd7371babff19672",
+      "rights_confirmed": true,
+      "kind": "illustration",
+      "provenance": "Original GSun programmatic typography; DejaVu font; no client photograph",
+      "language": "ru",
+      "card_copy": "GSun Energy\nСолнечная энергия / практика\nРаботаете\nс гостиницами?\nПроектирование\nУстановка\nОбслуживание\nceo@gsun.io"
+    },
+    "card-ru-2026-11-13-f55da8452567": {
+      "path": "gsun-november-2026-cards-ru-v1/gsun-2026-11-13-ru.png",
+      "sha256": "f55da845256776cccbf1c490b64492b4a3c4e8fb3c9cb6f612f1f9615740bff3",
+      "rights_confirmed": true,
+      "kind": "illustration",
+      "provenance": "Original GSun programmatic typography; DejaVu font; no client photograph",
+      "language": "ru",
+      "card_copy": "GSun Energy\nСолнечная энергия / практика\nС какой задачей\nвы сейчас?\nНовая станция\nОбслуживание\nМониторинг\nceo@gsun.io"
+    }
+  }
+}
