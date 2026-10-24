@@ -1,0 +1,122 @@
+[
+  {
+    "id": "GSUN_DIGITAL_ENGINEER_DIRECTION",
+    "public": false,
+    "verified": true,
+    "status": "plan",
+    "source_url": "https://chatgpt.com/space/page_8ec26c6986b8819186c99629d3ae25b1",
+    "text": "Принято направление: цифровой инженер отвечает по документам и данным объекта, объясняет основания, признаёт недостаток доказательств. Начальный режим — чтение. Это цель развития, не доказательство готовности.",
+    "checked_at": "2026-10-24T08:38:30.621836+00:00",
+    "valid_until": "2026-11-30T23:59:59+03:00",
+    "verification_basis": "Содержание основания прочитано ассистентом; verified означает проверку этого утверждения по источнику, не независимый полевой тест. public=false до согласования раскрытия. valid_until — срок редакционной пересверки, не гарантия актуальности.",
+    "release_status": "PENDING_OWNER_DISCLOSURE_AND_FRESHNESS_CHECK"
+  },
+  {
+    "id": "GSUN_PILOT_CHART_TO_CHAT",
+    "public": false,
+    "verified": true,
+    "status": "verified_result",
+    "source_url": "https://github.com/GSun-Energy/gsun-ai-platform/blob/aa52527400ce350f17b500d3538f5cff30fa7e63/docs/product/STATION_WORKSPACE_2026-10-21_RU.md",
+    "text": "В закрытом пилоте Kristal реализован перенос выбранной станции и даты из графика в черновик чата без автоматической отправки. Это ограниченный пилот, не публичный запуск для всех объектов.",
+    "checked_at": "2026-10-24T08:38:30.621849+00:00",
+    "valid_until": "2026-11-30T23:59:59+03:00",
+    "verification_basis": "Содержание основания прочитано ассистентом; verified означает проверку этого утверждения по источнику, не независимый полевой тест. public=false до согласования раскрытия. valid_until — срок редакционной пересверки, не гарантия актуальности.",
+    "release_status": "PENDING_OWNER_DISCLOSURE_AND_FRESHNESS_CHECK"
+  },
+  {
+    "id": "GSUN_PILOT_DATA_GAPS",
+    "public": false,
+    "verified": true,
+    "status": "verified_result",
+    "source_url": "https://github.com/GSun-Energy/gsun-ai-platform/blob/aa52527400ce350f17b500d3538f5cff30fa7e63/docs/product/STATION_WORKSPACE_2026-10-21_RU.md",
+    "text": "Интервалы между точками более 15 минут отмечаются; линии через пропуски не соединяются, пропуски не заменяются нулями. Причина потерь не установлена; пропуск не доказывает простой станции.",
+    "checked_at": "2026-10-24T08:38:30.621852+00:00",
+    "valid_until": "2026-11-30T23:59:59+03:00",
+    "verification_basis": "Содержание основания прочитано ассистентом; verified означает проверку этого утверждения по источнику, не независимый полевой тест. public=false до согласования раскрытия. valid_until — срок редакционной пересверки, не гарантия актуальности.",
+    "release_status": "PENDING_OWNER_DISCLOSURE_AND_FRESHNESS_CHECK"
+  },
+  {
+    "id": "GSUN_PILOT_STRUCTURED_PASSPORT",
+    "public": false,
+    "verified": true,
+    "status": "verified_result",
+    "source_url": "https://github.com/GSun-Energy/gsun-ai-platform/blob/aa52527400ce350f17b500d3538f5cff30fa7e63/docs/station-passport-pilot-2026-10-21.md",
+    "text": "Паспорт пилота содержит группы сведений об объекте, оборудовании, PV и источниках измерений. Неизвестные поля остаются неизвестными. Документ не подтверждает реализацию загрузки документов и расширенного редактирования.",
+    "checked_at": "2026-10-24T08:38:30.621853+00:00",
+    "valid_until": "2026-11-30T23:59:59+03:00",
+    "verification_basis": "Содержание основания прочитано ассистентом; verified означает проверку этого утверждения по источнику, не независимый полевой тест. public=false до согласования раскрытия. valid_until — срок редакционной пересверки, не гарантия актуальности.",
+    "release_status": "PENDING_OWNER_DISCLOSURE_AND_FRESHNESS_CHECK"
+  },
+  {
+    "id": "GSUN_ENGINEER_TEST_POLICY",
+    "public": false,
+    "verified": true,
+    "status": "plan",
+    "source_url": "https://chatgpt.com/space/page_8ec26c6986b8819186c99629d3ae25b1",
+    "text": "До будущего испытания фиксируются вопросы, источники и ожидаемые ответы; проверяются числа, единицы, выбор объекта и недостаток данных. Это принятый процесс, не отчёт об уже пройденном наборе испытаний.",
+    "checked_at": "2026-10-24T08:38:30.621854+00:00",
+    "valid_until": "2026-11-30T23:59:59+03:00",
+    "verification_basis": "Содержание основания прочитано ассистентом; verified означает проверку этого утверждения по источнику, не независимый полевой тест. public=false до согласования раскрытия. valid_until — срок редакционной пересверки, не гарантия актуальности.",
+    "release_status": "PENDING_OWNER_DISCLOSURE_AND_FRESHNESS_CHECK"
+  },
+  {
+    "id": "GSUN_LOCAL_AUTONOMY_PLAN",
+    "public": false,
+    "verified": true,
+    "status": "plan",
+    "source_url": "https://github.com/GSun-Energy/gsun-ai-platform/blob/aa52527400ce350f17b500d3538f5cff30fa7e63/docs/architecture/AUTONOMY_PATH_2026-10-20_RU.md",
+    "text": "Автономность всей платформы ещё требует реализации и проверки. Локальная модель отдельно не доказывает автономную работу данных, прав и истории. План включает проверку без внешней сети и восстановление связи.",
+    "checked_at": "2026-10-24T08:38:30.621855+00:00",
+    "valid_until": "2026-11-30T23:59:59+03:00",
+    "verification_basis": "Содержание основания прочитано ассистентом; verified означает проверку этого утверждения по источнику, не независимый полевой тест. public=false до согласования раскрытия. valid_until — срок редакционной пересверки, не гарантия актуальности.",
+    "release_status": "PENDING_OWNER_DISCLOSURE_AND_FRESHNESS_CHECK"
+  },
+  {
+    "id": "GSUN_PILOT_REPORT_EXPORT",
+    "public": false,
+    "verified": true,
+    "status": "verified_result",
+    "source_url": "https://github.com/GSun-Energy/gsun-ai-platform/blob/aa52527400ce350f17b500d3538f5cff30fa7e63/docs/station-grid-reports-2026-10-21.md",
+    "text": "В пилоте реализованы период отчёта и JSON/CSV экспорт с проверкой доступа к станции, происхождением и ограничениями. Это не независимая верификация измерений; мобильная визуальная приёмка остаётся.",
+    "checked_at": "2026-10-24T08:38:30.621856+00:00",
+    "valid_until": "2026-11-30T23:59:59+03:00",
+    "verification_basis": "Содержание основания прочитано ассистентом; verified означает проверку этого утверждения по источнику, не независимый полевой тест. public=false до согласования раскрытия. valid_until — срок редакционной пересверки, не гарантия актуальности.",
+    "release_status": "PENDING_OWNER_DISCLOSURE_AND_FRESHNESS_CHECK"
+  },
+  {
+    "id": "GSUN_ORACLE_PRODUCT_BOUNDARY",
+    "public": false,
+    "verified": true,
+    "status": "plan",
+    "source_url": "https://chatgpt.com/space/page_8ec26c6986b8819186c99629d3ae25b1",
+    "text": "Направление владельца: Oracle связывает показания с объектом и происхождением. Подпись не означает автоматическую выдачу сертификата или доказательство отсутствия повторного зачёта. Конкретные криптографические испытания здесь не заявляются.",
+    "checked_at": "2026-10-24T08:38:30.621857+00:00",
+    "valid_until": "2026-11-30T23:59:59+03:00",
+    "verification_basis": "Содержание основания прочитано ассистентом; verified означает проверку этого утверждения по источнику, не независимый полевой тест. public=false до согласования раскрытия. valid_until — срок редакционной пересверки, не гарантия актуальности. Конкретное требование Oracle и подписание данных сообщены владельцем в беседе; страница стратегии — контекст, не протокол криптографического испытания.",
+    "release_status": "PENDING_OWNER_DISCLOSURE_AND_FRESHNESS_CHECK"
+  },
+  {
+    "id": "GSUN_MANUFACTURER_API_POOLS_PLAN",
+    "public": false,
+    "verified": true,
+    "status": "plan",
+    "source_url": "https://chatgpt.com/space/page_8ec26c6986b8819186c99629d3ae25b1",
+    "text": "Требование владельца из беседы: будущие API-пулы для инженеров нескольких производителей. Это не принятое внедрение. Нужны проверки доступных данных, прав, задержек и условий API; API-подключение не доказывает offline. Страница стратегии даёт общий контекст; конкретное требование подтверждено беседой владельца.",
+    "checked_at": "2026-10-24T08:38:30.621858+00:00",
+    "valid_until": "2026-11-30T23:59:59+03:00",
+    "verification_basis": "Содержание основания прочитано ассистентом; verified означает проверку этого утверждения по источнику, не независимый полевой тест. public=false до согласования раскрытия. valid_until — срок редакционной пересверки, не гарантия актуальности.",
+    "release_status": "PENDING_OWNER_DISCLOSURE_AND_FRESHNESS_CHECK"
+  },
+  {
+    "id": "GSUN_PUBLIC_PROGRESS_POLICY",
+    "public": false,
+    "verified": true,
+    "status": "plan",
+    "source_url": "https://chatgpt.com/space/page_8ec26c6986b8819186c99629d3ae25b1",
+    "text": "Принята редакционная политика: задача, проверка, результат и следующий шаг; отделять планы от проверенных возможностей. Итоги ноября заранее не известны.",
+    "checked_at": "2026-10-24T08:38:30.621859+00:00",
+    "valid_until": "2026-11-30T23:59:59+03:00",
+    "verification_basis": "Содержание основания прочитано ассистентом; verified означает проверку этого утверждения по источнику, не независимый полевой тест. public=false до согласования раскрытия. valid_until — срок редакционной пересверки, не гарантия актуальности.",
+    "release_status": "PENDING_OWNER_DISCLOSURE_AND_FRESHNESS_CHECK"
+  }
+]
