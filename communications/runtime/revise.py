@@ -152,12 +152,52 @@ def no_deliveries(home, plan):
                 f.require(not rows, 'STOP_EXISTING_DELIVERY_RECORD')
 
 
+def frozen_deliveries(home, plan, preserve_ids):
+    """Read exact receipts; never modify the publication ledger."""
+    f.require(isinstance(preserve_ids, list) and all(isinstance(x, str) for x in preserve_ids)
+              and len(preserve_ids) == len(set(preserve_ids)), 'INVALID_PRESERVE_IDS')
+    posts = {p['id']: p for p in plan['posts']}
+    f.require(set(preserve_ids) <= set(posts), 'UNKNOWN_PRESERVE_ID')
+    path = home / 'deliveries.sqlite'
+    rows = []
+    if path.exists():
+        with sqlite3.connect(path.resolve().as_uri() + '?mode=ro', uri=True) as db:
+            for post_id in posts:
+                keys = (f'post:{post_id}:{f.CHANNEL}', f'missed:{post_id}',
+                        f'reminder:{post_id}:24', f'reminder:{post_id}:1')
+                rows.extend(db.execute(
+                    'SELECT id,status,result FROM deliveries WHERE id IN (?,?,?,?)', keys).fetchall())
+    sent = set()
+    for key, status, raw in rows:
+        f.require(status == 'sent', 'STOP_DELIVERY_RESULT_UNKNOWN')
+        f.require(key.startswith('post:'), 'STOP_EXISTING_DELIVERY_RECORD')
+        post_id = key.split(':')[1]
+        try:
+            receipt = json.loads(raw)
+        except (TypeError, ValueError):
+            raise f.Stop('STOP_RECEIPT_INVALID') from None
+        f.require(isinstance(receipt, dict) and receipt.get('post_hash') == f.digest(posts[post_id])
+                  and receipt.get('channel_id') == f.CHANNEL
+                  and type(receipt.get('message_id')) is int and receipt['message_id'] > 0,
+                  'STOP_RECEIPT_CONTENT_UNVERIFIED')
+        sent.add(post_id)
+    f.require(sent == set(preserve_ids), 'STOP_PRESERVE_RECEIPTS_MISMATCH')
+    return sorted(rows)
+
+
+def future_unsent(plan, preserve_ids):
+    now = datetime.now(timezone.utc)
+    f.require(all(f.instant(p['scheduled_at']) > now for p in plan['posts']
+                  if p['id'] not in preserve_ids), 'STOP_MONTH_STARTED')
+
+
 def revise(home, revision, reviewer, config_check=lambda: None):
     month, rid = revision.get('month'), revision.get('revision_id')
     f.require(bool(re.fullmatch(r'\d{4}-(0[1-9]|1[0-2])', month or '')), 'INVALID_MONTH')
     f.require(bool(re.fullmatch(r'[a-zA-Z0-9_-]{1,100}', rid or '')), 'INVALID_REVISION_ID')
     path = home / 'plans' / (month + '.json')
     result_dir = home / 'revisions' / rid
+    preserve_ids = revision.get('preserve_sent_ids', [])
     with locked(home):
         config_check()
         original = f.read(path)
@@ -165,8 +205,8 @@ def revise(home, revision, reviewer, config_check=lambda: None):
             print('REVISION_ALREADY_INSTALLED', flush=True)
             return path
         f.require(original.get('approval') is None, 'STOP_ALREADY_APPROVED')
-        f.require(f.instant(original['posts'][0]['scheduled_at']) > datetime.now(timezone.utc), 'STOP_MONTH_STARTED')
-        no_deliveries(home, original)
+        receipts = frozen_deliveries(home, original, preserve_ids)
+        future_unsent(original, preserve_ids)
         facts, media = f.read(home/'facts.json'), f.read(home/'media.json')
         before = f.digest(original)
         sources = f.digest({'facts': facts, 'media': media})
@@ -174,10 +214,17 @@ def revise(home, revision, reviewer, config_check=lambda: None):
         plan = copy.deepcopy(original)
         for old, new in zip(plan['posts'], revision['posts']):
             f.require(old['id'] == new.get('id'), 'REVISION_POST_ID')
+            if old['id'] in preserve_ids:
+                f.require(all(key in new and new[key] == old.get(key) for key in
+                              ('text_ru','text_en','fact_ids','media_id','image_brief'))
+                          and all(key in old and value == old[key] for key, value in new.items()),
+                          'STOP_SENT_POST_CHANGED')
+                continue
+            f.require('scheduled_at' not in new or new['scheduled_at'] == old['scheduled_at'],
+                      'SCHEDULE_CHANGED')
             for key in ('text_ru','text_en','fact_ids','media_id','image_brief'):
                 f.require(key in new, 'REVISION_FIELD_MISSING')
                 old[key] = new[key]
-            f.require(old['media_id'] is None, 'TEXT_REVISION_ONLY')
         plan['approval'] = None
         plan['editorial_revision'] = rid
         plan['revision_of'] = before
@@ -202,8 +249,9 @@ def revise(home, revision, reviewer, config_check=lambda: None):
         f.require(f.digest(f.read(path)) == before, 'STOP_PLAN_CHANGED_DURING_REVIEW')
         current_facts, current_media = f.read(home/'facts.json'), f.read(home/'media.json')
         f.require(f.digest({'facts':current_facts,'media':current_media}) == sources, 'STOP_SOURCES_CHANGED_DURING_REVIEW')
-        no_deliveries(home, plan)
-        f.require(f.instant(plan['posts'][0]['scheduled_at']) > datetime.now(timezone.utc), 'STOP_MONTH_STARTED')
+        f.require(frozen_deliveries(home, original, preserve_ids) == receipts,
+                  'STOP_DELIVERIES_CHANGED_DURING_REVIEW')
+        future_unsent(plan, preserve_ids)
         f.validate(plan, home, current_facts, current_media)
         # Archive completes before replacing the active, unapproved draft.
         f.write(result_dir/('original-'+before+'.json'), original)
