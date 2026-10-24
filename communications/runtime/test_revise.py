@@ -67,6 +67,107 @@ class RevisionTests(unittest.TestCase):
             r.revise(self.home,self.revision,lambda *a:{'pass':True,'issues':['still unresolved']})
         self.assertEqual(f.read(self.path),self.plan)
 
+    def freeze_first(self, status='sent'):
+        import sqlite3
+        post=self.plan['posts'][0]
+        self.revision['posts'][0]=copy.deepcopy(post)
+        self.revision['preserve_sent_ids']=[post['id']]
+        with sqlite3.connect(self.home/'deliveries.sqlite') as db:
+            db.execute('CREATE TABLE deliveries(id TEXT PRIMARY KEY,status TEXT,result TEXT)')
+            db.execute('INSERT INTO deliveries VALUES (?,?,?)',
+                       ('post:'+post['id']+':'+str(f.CHANNEL),status,
+                        json.dumps({'post_hash':f.digest(post),'channel_id':f.CHANNEL,'message_id':4})))
+        return (self.home/'deliveries.sqlite').read_bytes()
+
+    def test_sent_post_and_receipt_preserved_pending_updated(self):
+        receipt=self.freeze_first()
+        r.revise(self.home,self.revision,lambda *a:{'pass':True,'issues':[]})
+        plan=f.read(self.path)
+        self.assertEqual(plan['posts'][0],self.plan['posts'][0])
+        self.assertEqual(plan['posts'][1]['text_ru'],self.revision['posts'][1]['text_ru'])
+        self.assertIsNone(plan['approval'])
+        self.assertEqual(receipt,(self.home/'deliveries.sqlite').read_bytes())
+
+    def test_sent_image_and_catalog_hash_are_preserved(self):
+        import hashlib
+        image=self.home/'assets/card.png';image.parent.mkdir();image.write_bytes(b'image-fixture')
+        item={'path':'card.png','rights_confirmed':True,'sha256':hashlib.sha256(image.read_bytes()).hexdigest(),'kind':'illustration'}
+        post=self.plan['posts'][0];post['media_id']='card';post['text_ru']='Иллюстрация: пример'
+        self.plan['media_hashes']={'card':f.digest(item)}
+        self.plan['review']['posts_hash']=f.digest(self.plan['posts'])
+        f.write(self.path,self.plan);f.write(self.home/'media.json',{'card':item})
+        receipt=self.freeze_first()
+        r.revise(self.home,self.revision,lambda *a:{'pass':True,'issues':[]})
+        changed=f.read(self.path)
+        self.assertEqual(changed['posts'][0],post)
+        self.assertEqual(changed['media_hashes'],self.plan['media_hashes'])
+        self.assertEqual(receipt,(self.home/'deliveries.sqlite').read_bytes())
+
+    def test_any_sent_field_change_rejected_before_review(self):
+        self.freeze_first()
+        reviewer=Mock()
+        original=copy.deepcopy(self.revision['posts'][0])
+        for field in ('text_ru','text_en','media_id','scheduled_at','fact_ids','image_brief'):
+            with self.subTest(field=field):
+                self.revision['posts'][0]=dict(original,**{field:'CHANGED'})
+                with self.assertRaisesRegex(f.Stop,'STOP_SENT_POST_CHANGED'):
+                    r.revise(self.home,self.revision,reviewer)
+        reviewer.assert_not_called()
+        self.assertEqual(f.read(self.path),self.plan)
+
+    def test_unknown_delivery_never_revised(self):
+        receipt=self.freeze_first('sending_or_unknown')
+        with self.assertRaisesRegex(f.Stop,'STOP_DELIVERY_RESULT_UNKNOWN'):
+            r.revise(self.home,self.revision,Mock())
+        self.assertEqual(receipt,(self.home/'deliveries.sqlite').read_bytes())
+        self.assertEqual(f.read(self.path),self.plan)
+
+    def test_preserve_must_match_receipts(self):
+        self.freeze_first();self.revision['preserve_sent_ids']=[]
+        with self.assertRaisesRegex(f.Stop,'STOP_PRESERVE_RECEIPTS_MISMATCH'):
+            r.revise(self.home,self.revision,Mock())
+
+    def test_sent_content_must_match_receipt_hash(self):
+        self.freeze_first()
+        self.plan['posts'][0]['text_ru']='Tampered'
+        f.write(self.path,self.plan)
+        with self.assertRaisesRegex(f.Stop,'STOP_RECEIPT_CONTENT_UNVERIFIED'):
+            r.revise(self.home,self.revision,Mock())
+
+    def test_concurrent_delivery_stops_install(self):
+        import sqlite3
+        receipt=self.freeze_first()
+        def reviewer(*a):
+            post=self.plan['posts'][1]
+            with sqlite3.connect(self.home/'deliveries.sqlite') as db:
+                db.execute('INSERT INTO deliveries VALUES (?,?,?)',
+                           ('post:'+post['id']+':'+str(f.CHANNEL),'sending_or_unknown',None))
+            return {'pass':True,'issues':[]}
+        with self.assertRaisesRegex(f.Stop,'STOP_DELIVERY_RESULT_UNKNOWN'):
+            r.revise(self.home,self.revision,reviewer)
+        self.assertEqual(f.read(self.path),self.plan)
+
+    def test_receipt_change_during_review_stops_install(self):
+        import sqlite3
+        self.freeze_first()
+        def reviewer(*a):
+            with sqlite3.connect(self.home/'deliveries.sqlite') as db:
+                raw=json.loads(db.execute('SELECT result FROM deliveries').fetchone()[0])
+                raw['message_id']=99
+                db.execute('UPDATE deliveries SET result=?',(json.dumps(raw),))
+            return {'pass':True,'issues':[]}
+        with self.assertRaisesRegex(f.Stop,'STOP_DELIVERIES_CHANGED'):
+            r.revise(self.home,self.revision,reviewer)
+        self.assertEqual(f.read(self.path),self.plan)
+
+    def test_rejected_revision_keeps_sent_receipt(self):
+        receipt=self.freeze_first()
+        with self.assertRaisesRegex(f.Stop,'EDITOR_REVIEW_REQUIRED'):
+            r.revise(self.home,self.revision,lambda *a:{'pass':False,'issues':['claim']})
+        self.assertEqual(f.read(self.path),self.plan)
+        self.assertEqual(receipt,(self.home/'deliveries.sqlite').read_bytes())
+
+
 
 class ChunkReviewTests(unittest.TestCase):
     def setUp(self):
