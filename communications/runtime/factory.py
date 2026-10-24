@@ -21,6 +21,7 @@ from zoneinfo import ZoneInfo
 MSK = ZoneInfo('Europe/Moscow')
 CHANNEL = -1004428833073
 BOT = 'greensun_energy_bot'
+PUBLISHER_FEATURES = {'publication_holds', 'sent_before_reminders'}
 
 
 class Stop(Exception):
@@ -94,6 +95,10 @@ def media_path(home, item):
 
 
 def validate(plan, home, facts, media, *, partial=False):
+    features = plan.get('minimum_publisher_features', [])
+    require(isinstance(features, list) and all(isinstance(x, str) and x in PUBLISHER_FEATURES for x in features), 'PUBLISHER_FEATURE_UNSUPPORTED')
+    holds = plan.get('publication_holds', {})
+    require(isinstance(holds, dict) and all(k in {p['id'] for p in plan['posts']} and isinstance(v,str) and bool(v.strip()) for k,v in holds.items()), 'PUBLICATION_HOLDS_INVALID')
     require(plan['channel_id'] == CHANNEL, 'CHANNEL_CHANGED')
     require(plan.get('timezone') == 'Europe/Moscow', 'TIMEZONE_CHANGED')
     expected = slots(plan['month'])
@@ -355,6 +360,8 @@ def tick(home, live=False, client=None, now=None):
             require(p['approval']['hash'] == sealed_hash(p), 'APPROVED_PLAN_CHANGED')
             validate(p, home, facts, media)
             for post in p['posts']:
+                if post['id'] in p.get('publication_holds', {}):
+                    continue
                 key = 'post:' + post['id'] + ':' + str(CHANNEL)
                 receipt = db.execute('SELECT status FROM deliveries WHERE id=?', (key,)).fetchone() if db else None
                 if receipt:
