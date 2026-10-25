@@ -1,0 +1,292 @@
+{
+  "browser": "153.0.8010.0",
+  "results": [
+    {
+      "width": 320,
+      "route": "/news/",
+      "scroll": 320,
+      "h1": 1,
+      "images": [
+        {
+          "loaded": true,
+          "current": "http://127.0.0.1:33191/news/assets/cover-mobile.svg",
+          "width": 282
+        }
+      ],
+      "nav": [
+        {
+          "label": "GSun Energy",
+          "height": 50.5
+        },
+        {
+          "label": "Новости",
+          "height": 44
+        },
+        {
+          "label": "Связаться ↗",
+          "height": 44
+        }
+      ],
+      "font": "18px"
+    },
+    {
+      "width": 320,
+      "route": "/news/digital-engineer/",
+      "scroll": 320,
+      "h1": 1,
+      "images": [
+        {
+          "loaded": true,
+          "current": "http://127.0.0.1:33191/news/assets/cover-mobile.svg",
+          "width": 284
+        }
+      ],
+      "nav": [
+        {
+          "label": "GSun Energy",
+          "height": 50.5
+        },
+        {
+          "label": "Новости",
+          "height": 44
+        },
+        {
+          "label": "Связаться ↗",
+          "height": 44
+        }
+      ],
+      "font": "18px"
+    },
+    {
+      "width": 390,
+      "route": "/news/",
+      "scroll": 390,
+      "h1": 1,
+      "images": [
+        {
+          "loaded": true,
+          "current": "http://127.0.0.1:33191/news/assets/cover-mobile.svg",
+          "width": 352
+        }
+      ],
+      "nav": [
+        {
+          "label": "GSun Energy",
+          "height": 42.5
+        },
+        {
+          "label": "Новости",
+          "height": 44
+        },
+        {
+          "label": "Связаться ↗",
+          "height": 44
+        }
+      ],
+      "font": "18px"
+    },
+    {
+      "width": 390,
+      "route": "/news/digital-engineer/",
+      "scroll": 390,
+      "h1": 1,
+      "images": [
+        {
+          "loaded": true,
+          "current": "http://127.0.0.1:33191/news/assets/cover-mobile.svg",
+          "width": 354
+        }
+      ],
+      "nav": [
+        {
+          "label": "GSun Energy",
+          "height": 42.5
+        },
+        {
+          "label": "Новости",
+          "height": 44
+        },
+        {
+          "label": "Связаться ↗",
+          "height": 44
+        }
+      ],
+      "font": "18px"
+    },
+    {
+      "width": 768,
+      "route": "/news/",
+      "scroll": 768,
+      "h1": 1,
+      "images": [
+        {
+          "loaded": true,
+          "current": "http://127.0.0.1:33191/news/assets/cover.svg",
+          "width": 718
+        }
+      ],
+      "nav": [
+        {
+          "label": "GSun Energy",
+          "height": 47.59375
+        },
+        {
+          "label": "Новости",
+          "height": 44
+        },
+        {
+          "label": "Связаться ↗",
+          "height": 44
+        }
+      ],
+      "font": "18px"
+    },
+    {
+      "width": 768,
+      "route": "/news/digital-engineer/",
+      "scroll": 768,
+      "h1": 1,
+      "images": [
+        {
+          "loaded": true,
+          "current": "http://127.0.0.1:33191/news/assets/cover.svg",
+          "width": 720
+        }
+      ],
+      "nav": [
+        {
+          "label": "GSun Energy",
+          "height": 47.59375
+        },
+        {
+          "label": "Новости",
+          "height": 44
+        },
+        {
+          "label": "Связаться ↗",
+          "height": 44
+        }
+      ],
+      "font": "18px"
+    },
+    {
+      "width": 1440,
+      "route": "/news/",
+      "scroll": 1440,
+      "h1": 1,
+      "images": [
+        {
+          "loaded": true,
+          "current": "http://127.0.0.1:33191/news/assets/cover.svg",
+          "width": 559
+        }
+      ],
+      "nav": [
+        {
+          "label": "GSun Energy",
+          "height": 47.59375
+        },
+        {
+          "label": "Новости",
+          "height": 44
+        },
+        {
+          "label": "Связаться ↗",
+          "height": 44
+        }
+      ],
+      "font": "18px"
+    },
+    {
+      "width": 1440,
+      "route": "/news/digital-engineer/",
+      "scroll": 1440,
+      "h1": 1,
+      "images": [
+        {
+          "loaded": true,
+          "current": "http://127.0.0.1:33191/news/assets/cover.svg",
+          "width": 1120
+        }
+      ],
+      "nav": [
+        {
+          "label": "GSun Energy",
+          "height": 47.59375
+        },
+        {
+          "label": "Новости",
+          "height": 44
+        },
+        {
+          "label": "Связаться ↗",
+          "height": 44
+        }
+      ],
+      "font": "18px"
+    },
+    {
+      "width": 1920,
+      "route": "/news/",
+      "scroll": 1920,
+      "h1": 1,
+      "images": [
+        {
+          "loaded": true,
+          "current": "http://127.0.0.1:33191/news/assets/cover.svg",
+          "width": 559
+        }
+      ],
+      "nav": [
+        {
+          "label": "GSun Energy",
+          "height": 47.59375
+        },
+        {
+          "label": "Новости",
+          "height": 44
+        },
+        {
+          "label": "Связаться ↗",
+          "height": 44
+        }
+      ],
+      "font": "18px"
+    },
+    {
+      "width": 1920,
+      "route": "/news/digital-engineer/",
+      "scroll": 1920,
+      "h1": 1,
+      "images": [
+        {
+          "loaded": true,
+          "current": "http://127.0.0.1:33191/news/assets/cover.svg",
+          "width": 1120
+        }
+      ],
+      "nav": [
+        {
+          "label": "GSun Energy",
+          "height": 47.59375
+        },
+        {
+          "label": "Новости",
+          "height": 44
+        },
+        {
+          "label": "Связаться ↗",
+          "height": 44
+        }
+      ],
+      "font": "18px"
+    }
+  ],
+  "navigation": "PASS",
+  "keyboard": "PASS",
+  "svgBounds": "PASS",
+  "errors": [],
+  "scope": "LOCAL_SYNTHETIC_PUBLIC_TEMPLATE_TEST_ONLY",
+  "owner_approval": null,
+  "published": false
+}

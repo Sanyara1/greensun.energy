@@ -1,0 +1,41 @@
+{
+  "checked_at": "2026-10-25T06:59:59.282390+00:00",
+  "results": [
+    {
+      "url": "https://greensun.energy/",
+      "status": "200",
+      "exit_code": 0,
+      "sha256_body": "aa4f1a05ec56461f1784ac56b11a491931dbb5ad51c94d53bd9ab13702fb4c96",
+      "error": ""
+    },
+    {
+      "url": "https://greensun.energy/contacts/",
+      "status": "200",
+      "exit_code": 0,
+      "sha256_body": "78d3cb52acdd46b4f7550feea7b4438dc299019b171108aedac95f61e2a75dc1",
+      "error": ""
+    },
+    {
+      "url": "https://greensun.energy/news/",
+      "status": "404",
+      "exit_code": 0,
+      "sha256_body": "766c1d6bcb81d3e983fb7adbc19c616d7fc01dafb7893738edc242e2adc59c07",
+      "error": ""
+    },
+    {
+      "url": "https://greensun.energy/sitemap.xml",
+      "status": "200",
+      "exit_code": 0,
+      "sha256_body": "f8bccea5559f9221f20c61eb9bd64c21519f23a156253e2b48bedde5ff52b69b",
+      "error": ""
+    },
+    {
+      "url": "https://greensun.energy/robots.txt",
+      "status": "200",
+      "exit_code": 0,
+      "sha256_body": "33e35f85c8e5d36ba2e494915094a37cb496c686cce8c9bf0e2d196e6f500fd3",
+      "error": ""
+    }
+  ],
+  "nginx_config_verified": false
+}

@@ -1,61 +1,156 @@
 #!/usr/bin/env python3
-"""Build an isolated editorial preview. No network, credentials or live writes."""
+"""Build isolated /news/ files. Python standard library; no deploy or network calls."""
 import argparse
+from datetime import datetime, timezone
 import hashlib
 import html
 import json
 from pathlib import Path
+import shutil
+from xml.sax.saxutils import escape
 
-ARTICLE = {
-    "id": "GSUN-NEWS-001",
-    "slug": "digital-engineer",
-    "title": "Зачем солнечной станции цифровой инженер",
-    "description": "Развиваем помощника, который связывает вопросы владельца станции с документами и данными объекта.",
-    "status": "Направление разработки",
-    "draft_date": "2026-10-24",
-    "published_at": None,
-    "approval": None,
-    "sections": [
-        ["От графика к понятному вопросу", "Владельцу солнечной станции важно понимать, что показывают данные, откуда взялся вывод и что стоит проверить дальше. Одного графика для ответа на все эти вопросы недостаточно."],
-        ["Что мы развиваем", "GSun.AI — направление цифрового инженера: помощника, который связывает вопрос с документами и данными конкретного объекта. Начальный режим — чтение и объяснение. Если сведений недостаточно, это должно быть видно в ответе."],
-        ["Как будем показывать готовность", "Готовность будем подтверждать конкретными проверками. В публикациях будем отдельно обозначать задачу, условия проверки, результат, ограничения и следующий шаг. План разработки не означает, что функция уже доступна всем пользователям."],
-        ["Для кого это направление", "Для владельцев станций, обслуживающих инженеров и партнёров, которым нужен понятный разговор об оборудовании и данных. Обсудить задачу своего объекта можно с командой GSun."],
-    ],
-    "source_ids": ["GSUN_DIGITAL_ENGINEER_DIRECTION", "GSUN_PUBLIC_PROGRESS_POLICY"],
-    "editorial_source": "communications/editorial/v6/proposed-facts.json",
-    "editorial_source_commit": "140dd8855727d33e8c110ba3e3d620c360db813e",
-    "disclosure": "New article requires owner approval; source records are not public-release approvals.",
-}
+HERE = Path(__file__).resolve().parent
+ORIGIN = 'https://greensun.energy'
+NEWS = ORIGIN + '/news/'
+CONTACT = ORIGIN + '/contacts/#station-form'
+ARTICLE = json.loads((HERE / 'article.json').read_text(encoding='utf-8'))
+DESCRIPTION = 'Задачи солнечных станций и развитие цифрового инженера GSun: проверенные результаты, пилоты и планы.'
+MONTHS = ('января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря')
 
-CSS = '''*{box-sizing:border-box}body{margin:0;background:#0a1110;color:#e7ece8;font:18px/1.65 system-ui,sans-serif}a{color:#8fe6bb;text-underline-offset:5px}a:focus-visible{outline:3px solid #efd082;outline-offset:5px}.wrap{width:min(1120px,90%);margin:auto}header{display:flex;justify-content:space-between;gap:20px;align-items:center;padding:28px 0;border-bottom:1px solid #31433b}.brand{font-size:29px;font-weight:750;text-decoration:none;color:#fff}.brand span{color:#80d6ae}nav{display:flex;gap:22px;flex-wrap:wrap}nav a{font-size:15px}.draft{background:#ede2c8;color:#302c20;padding:10px 5%;font-size:14px}.eyebrow{letter-spacing:.17em;text-transform:uppercase;color:#91d5b3;font-size:13px}h1{font-size:clamp(36px,6vw,72px);line-height:1.08;letter-spacing:-.025em;word-spacing:.08em;max-width:900px;margin:24px 0}h2{font-size:28px;line-height:1.25}main{padding:64px 0}.lead{font-size:22px;color:#b8c9c0;max-width:760px}.meta{display:flex;gap:15px;flex-wrap:wrap;font-size:14px;color:#b8c9c0;margin:28px 0}.badge{border:1px solid #547461;border-radius:30px;padding:3px 14px}.card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border:1px solid #314c3d;border-radius:20px;overflow:hidden;margin:45px 0;background:#101e19}.card img{display:block;width:100%;height:auto;min-width:0;align-self:center;object-fit:contain}.card-body{padding:32px;min-width:0}.button{display:inline-block;border:1px solid #80d6ae;border-radius:9px;padding:10px 18px;text-decoration:none;margin-top:16px}.article{max-width:760px;margin:40px auto}.article section{margin:42px 0}.hero{display:block;width:100%;border-radius:18px}.note{border-left:3px solid #80d6ae;padding:15px 22px;background:#14261e;color:#c2d9cb}figcaption{color:#9aafa2;font-size:13px}footer{padding:30px 0;border-top:1px solid #31433b;color:#a7bbb0;font-size:14px}@media(max-width:650px){header{align-items:flex-start}.card{grid-template-columns:1fr}.card-body{padding:23px}main{padding:38px 0}.lead{font-size:19px}nav{gap:8px;flex-direction:column}.article{margin:25px 0}}'''
 
-SVG = '''<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680"><defs><radialGradient id="g"><stop stop-color="#205c43"/><stop offset="1" stop-color="#0b1712"/></radialGradient></defs><rect width="1200" height="680" fill="url(#g)"/><g fill="none" stroke="#5dcd99" stroke-width="2" opacity=".65"><path d="M90 465H330L430 365H690L790 265H1110M90 525H360L460 425H720L820 325H1110M90 585H390L490 485H750L850 385H1110"/><circle cx="430" cy="365" r="9"/><circle cx="790" cy="265" r="9"/><circle cx="720" cy="425" r="9"/></g><text x="90" y="110" fill="#9ee5bf" font-family="sans-serif" font-size="28" letter-spacing="8">GSun.AI</text><text x="90" y="235" fill="#eff8f2" font-family="sans-serif" font-size="62" font-weight="bold">Данные. Контекст.</text><text x="90" y="310" fill="#eff8f2" font-family="sans-serif" font-size="62" font-weight="bold">Понятный следующий шаг.</text></svg>'''
+def sha(data):
+    return hashlib.sha256(data).hexdigest()
 
-def page(title, content, depth=0):
-    prefix = '../' if depth else ''
-    return f'''<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>{html.escape(title)} — GSun</title><meta name="description" content="{html.escape(ARTICLE['description'], quote=True)}"><link rel="stylesheet" href="{prefix}news.css"></head><body><div class="draft">Предпросмотр · черновик от 24 октября 2026 · не опубликовано</div><div class="wrap"><header><a class="brand" href="{prefix}index.html">GSun<span> Energy</span></a><nav aria-label="Навигация"><a href="https://greensun.energy/">Основной сайт ↗</a><a href="https://gsun.ai/start">Связаться ↗</a></nav></header><main>{content}</main><footer>GSun · Солнечные станции и цифровой инженер. <a href="mailto:ceo@gsun.io">ceo@gsun.io</a></footer></div></body></html>'''
 
-def build(destination):
-    # mkdir without exist_ok: fail closed, never overwrite existing previews/live files.
+def candidate_hash():
+    paths = [HERE / 'article.json', Path(__file__).resolve(), *sorted((HERE / 'assets').glob('*'))]
+    values = {p.name: sha(p.read_bytes()) for p in paths if p.is_file()}
+    return sha(json.dumps(values, sort_keys=True).encode())
+
+
+def stamp(value):
+    dt = datetime.fromisoformat(value.replace('Z', '+00:00'))
+    if dt.tzinfo is None:
+        raise ValueError('Publication and approval timestamps require a timezone')
+    return dt
+
+
+def validate_approval(path):
+    if path is None:
+        raise ValueError('Public build requires an explicit owner approval record')
+    approval = json.loads(Path(path).read_text(encoding='utf-8'))
+    if (approval.get('article_id') != ARTICLE['id']
+            or approval.get('candidate_sha256') != candidate_hash()
+            or approval.get('publication_approved') is not True
+            or approval.get('disclosure_approved') is not True
+            or not str(approval.get('approved_by') or '').strip()
+            or not str(approval.get('decision_ref') or '').strip()):
+        raise ValueError('Approval must identify this exact candidate, owner decision and disclosure')
+    approved, published = stamp(approval['approved_at']), stamp(approval['published_at'])
+    if approved > published or published > datetime.now(timezone.utc):
+        raise ValueError('Use the actual release time, not a future or pre-approval date')
+    return approval
+
+
+def date_label(iso):
+    dt = stamp(iso)
+    return f'{dt.day} {MONTHS[dt.month - 1]} {dt.year}'
+
+
+def page(title, content, *, detail=False, approval=None):
+    prefix = '../' if detail else ''
+    description = ARTICLE['description'] if detail else DESCRIPTION
+    public = approval is not None
+    url = NEWS + (ARTICLE['slug'] + '/' if detail else '')
+    metadata = '<meta name="robots" content="noindex,nofollow">'
+    if public:
+        image_version = sha((HERE / 'assets/cover-og.png').read_bytes())[:12]
+        metadata = f'''<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="{url}">
+<meta property="og:type" content="{'article' if detail else 'website'}">
+<meta property="og:locale" content="ru_RU"><meta property="og:site_name" content="GSun Energy">
+<meta property="og:title" content="{html.escape(title, quote=True)} — GSun">
+<meta property="og:description" content="{html.escape(description, quote=True)}">
+<meta property="og:url" content="{url}">
+<meta property="og:image" content="{NEWS}assets/cover-og.png?v={image_version}">
+<meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="GSun.AI. Данные. Контекст. Следующий шаг.">
+<meta name="twitter:card" content="summary_large_image">'''
+        if detail:
+            metadata += f'\n<meta property="article:published_time" content="{html.escape(approval["published_at"], quote=True)}">'
+    banner = '' if public else '<div class="draft">Локальный предпросмотр · не опубликовано · требуется решение владельца</div>'
+    css_version = sha((HERE / 'assets/news.css').read_bytes())[:12]
+    listing = ('../' if public else '../index.html') if detail else ('./' if public else 'index.html')
+    return f'''<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{html.escape(title)} — GSun</title><meta name="description" content="{html.escape(description, quote=True)}">
+<meta name="theme-color" content="#0a1110">{metadata}
+<link rel="icon" href="{prefix}assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="{prefix}assets/news.css?v={css_version}"></head>
+<body><a class="skip" href="#main">К содержанию</a>{banner}<div class="wrap">
+<header><a class="brand" href="{ORIGIN}/" aria-label="GSun Energy — главная">GSun<span> Energy</span></a>
+<nav aria-label="Основная навигация"><a href="{listing}"{' aria-current="page"' if not detail else ''}>Новости</a><a href="{CONTACT}">Связаться ↗</a></nav></header>
+<main id="main">{content}</main><footer>GSun · Солнечные станции и цифровой инженер.<br><a href="mailto:ceo@gsun.io">ceo@gsun.io</a></footer>
+</div></body></html>'''
+
+
+def picture(prefix='', card=False):
+    return f'''<picture><source media="(max-width: 650px)" srcset="{prefix}assets/cover-mobile.svg">
+<img class="{'card-image' if card else 'hero'}" src="{prefix}assets/cover.svg" width="1200" height="630" alt="GSun.AI. Данные. Контекст. Следующий шаг."></picture>'''
+
+
+def build(destination, mode='preview', approval_path=None):
+    if mode not in ('preview', 'public'):
+        raise ValueError('Unknown build mode')
+    if mode == 'preview' and approval_path is not None:
+        raise ValueError('Preview does not accept or imply approval')
+    approval = validate_approval(approval_path) if mode == 'public' else None
+    destination = Path(destination)
+    # Fail closed: never overwrite an existing directory or symlink.
     destination.mkdir(parents=True, exist_ok=False)
-    article_dir = destination / ARTICLE['slug']
-    article_dir.mkdir()
-    title = html.escape(ARTICLE['title'])
-    lead = html.escape(ARTICLE['description'])
-    badge = '<div class="meta"><span class="badge">Направление разработки</span><span>Редакционный черновик</span></div>'
-    listing = f'''<p class="eyebrow">Журнал GSun</p><h1>Энергия.<br>Инженерия. Развитие.</h1><p class="lead">Задачи реальных объектов и развитие цифрового инженера. Отдельно показываем проверенные результаты, пилоты и планы.</p><div class="card"><img src="cover.svg" alt="Абстрактная иллюстрация связей между данными и инженерным вопросом"><div class="card-body">{badge}<h2>{title}</h2><p>{lead}</p><a class="button" href="digital-engineer/index.html">Читать материал →</a></div></div>'''
-    sections = ''.join(f'<section><h2>{html.escape(h)}</h2><p>{html.escape(t)}</p></section>' for h,t in ARTICLE['sections'])
-    detail = f'''<a href="../index.html">← Все материалы</a>{badge}<h1>{title}</h1><p class="lead">{lead}</p><figure style="margin:35px 0"><img class="hero" src="../cover.svg" alt="Данные. Контекст. Понятный следующий шаг."><figcaption>Редакционная иллюстрация GSun, не фотография объекта и не экран продукта.</figcaption></figure><article class="article">{sections}<aside class="note">Статус материала: направление разработки. Это не объявление о готовности всех функций GSun.AI.</aside><a class="button" href="https://gsun.ai/start">Обсудить задачу объекта ↗</a></article>'''
-    files = {'index.html':page('Новости и развитие',listing), 'digital-engineer/index.html':page(ARTICLE['title'],detail,1),'news.css':CSS,'cover.svg':SVG}
-    for name,content in files.items():
-        (destination/name).write_text(content,encoding='utf-8')
-    manifest = {'status':'PREVIEW_ONLY','article':ARTICLE,'files':{name:hashlib.sha256(text.encode()).hexdigest() for name,text in files.items()},'publishing_enabled':False,'social_sends':0}
-    (destination/'review.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-    print('NEWS_PREVIEW_READY:', destination)
-    print('No live files, timers, plans or social channels modified.')
+    news = destination / 'news'
+    (news / ARTICLE['slug']).mkdir(parents=True)
+    shutil.copytree(HERE / 'assets', news / 'assets')
+    title, lead = html.escape(ARTICLE['title']), html.escape(ARTICLE['description'])
+    date = (f'<time datetime="{html.escape(approval["published_at"], quote=True)}">{date_label(approval["published_at"])}</time>'
+            if approval else '<span>Черновик от 24 октября 2026 · дата публикации не назначена</span>')
+    badge = f'<div class="meta"><span class="badge">Направление разработки</span>{date}</div>'
+    article_link = ARTICLE['slug'] + ('/' if approval else '/index.html')
+    listing = f'''<p class="eyebrow">Журнал GSun</p><h1>Энергия.<br>Инженерия. Развитие.</h1>
+<p class="lead">{DESCRIPTION}</p><div class="card">{picture(card=True)}<div class="card-body">{badge}
+<h2><a class="title-link" href="{article_link}">{title}</a></h2><p>{lead}</p><a class="button" href="{article_link}">Читать материал →</a></div></div>'''
+    sections = ''.join(f'<section><h2>{html.escape(h)}</h2><p>{html.escape(t)}</p></section>' for h, t in ARTICLE['sections'])
+    detail = f'''<a class="back" href="{'../' if approval else '../index.html'}">← Все материалы</a><article>
+{badge}<h1>{title}</h1><p class="lead">{lead}</p><figure>{picture('../')}
+<figcaption>Редакционная иллюстрация GSun, не фотография объекта и не экран продукта.</figcaption></figure>
+<div class="article-body">{sections}<aside class="note">Статус направления: разработка. Материал описывает наши цели и требования, а не готовность всех функций GSun.AI.</aside>
+<a class="button" href="{CONTACT}">Обсудить задачу объекта ↗</a></div></article>'''
+    (news / 'index.html').write_text(page('Новости и развитие', listing, approval=approval), encoding='utf-8')
+    (news / ARTICLE['slug'] / 'index.html').write_text(page(ARTICLE['title'], detail, detail=True, approval=approval), encoding='utf-8')
+    if approval:
+        entries = ''.join(f'<url><loc>{escape(url)}</loc><lastmod>{escape(approval["published_at"])}</lastmod></url>' for url in (NEWS, NEWS + ARTICLE['slug'] + '/'))
+        (news / 'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + entries + '</urlset>\n', encoding='utf-8')
+    manifest = {
+        'status': 'PUBLIC_BUILD_NOT_DEPLOYED' if approval else 'PREVIEW_ONLY',
+        'article_id': ARTICLE['id'], 'candidate_sha256': candidate_hash(),
+        'article': ARTICLE, 'approval': approval, 'published_at': None,
+        'release_timestamp': approval['published_at'] if approval else None,
+        'publishing_enabled': False, 'social_sends': 0,
+        'files': {str(p.relative_to(news)): sha(p.read_bytes()) for p in sorted(news.rglob('*')) if p.is_file()},
+    }
+    # This private record is a sibling of news/, outside the install payload.
+    (destination / 'review.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    print(f'{manifest["status"]}: {destination}')
+    return manifest
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--output',type=Path,required=True,help='New empty preview directory; never use a public web root')
+    parser.add_argument('--output', type=Path, required=True, help='New private build directory, never the live web root')
+    parser.add_argument('--mode', choices=('preview', 'public'), default='preview')
+    parser.add_argument('--approval', type=Path, help='Explicit owner decision bound to candidate_sha256; public mode only')
     args = parser.parse_args()
-    build(args.output)
+    try:
+        build(args.output, args.mode, args.approval)
+    except (ValueError, KeyError, OSError) as error:
+        parser.exit(1, f'STOP: {error}\n')
