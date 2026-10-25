@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="600" viewBox="0 0 720 600">
+<title>GSun.AI — данные, контекст, следующий шаг</title><defs><radialGradient id="g"><stop stop-color="#205c43"/><stop offset="1" stop-color="#0b1712"/></radialGradient></defs>
+<rect width="720" height="600" fill="url(#g)"/><g fill="none" stroke="#5dcd99" stroke-width="2" opacity=".65"><path d="M40 490H240L330 400H490L580 310H680M40 535H265L355 445H515L605 355H680M40 580H290L380 490H540L630 400H680"/><circle cx="330" cy="400" r="7"/></g>
+<g font-family="DejaVu Sans,sans-serif"><text x="44" y="90" fill="#9ee5bf" font-size="32" letter-spacing="4">GSun.AI</text><g fill="#eff8f2" font-size="64" font-weight="bold"><text x="44" y="205">Данные.</text><text x="44" y="295">Контекст.</text><text x="44" y="385">Следующий шаг.</text></g></g></svg>
